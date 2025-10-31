@@ -32,6 +32,15 @@ Quiz is created first by user, then user can log in again, and can choose whethe
 
 Timer - Either for the quiz as a whole or time per question
 
+
+Overview about our project: 
+
+1. A single user can create their own quizzes.
+2. The same user can play those quizzes later.
+3. Each question carries +5 points for correct answers.
+4. The app stores scores, tracks progress, and saves all created quizzes.
+
+
 Inputs 
 
 1. User info: username / email / password (if login system)
@@ -47,3 +56,4 @@ Outputs
 3. Final score 
 4. History of quizzes played (with scores)
 5. My profile
+
