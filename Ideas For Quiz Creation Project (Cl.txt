@@ -57,3 +57,13 @@ Outputs
 4. History of quizzes played (with scores)
 5. My profile
 
+How Data Is Used:
+
+1. Login/Register -> Checks users table and verifies password. If verified, creates a session
+2. Play Quiz -> Shows the questions from the backend. And it records user answers in a sep table
+3. Score Calculation - Comparing the answer of user with the correct answer. If correct, adds the points. If not, considered incorrect
+4. Storing Results - Saving score, the answers selected, no. of attempts, dateattended etc.
+5. View History (if we are using it to show progress of the user)
+6. Profile Page - User Info, No. of Attempts and Average Score (& also individual scores of a particular quiz)
+
+
