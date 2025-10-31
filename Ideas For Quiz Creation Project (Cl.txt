@@ -67,3 +67,42 @@ How Data Is Used:
 6. Profile Page - User Info, No. of Attempts and Average Score (& also individual scores of a particular quiz)
 
 
+Users Collection:
+
+• The Users collection stores all the information about people who use the web app.
+Each user document contains the basic details such as the name, email address, password, and profile photo link if available. Additionally, it also holds an array named previous_quizzes which stores the summary of all quizzes that the user has played in the past.
+
+•Each entry in previous_quizzes includes the quiz ID, score obtained, and date played.
+This allows the system to quickly retrieve and display a user’s quiz history without needing to access multiple collections.
+
+Quizzes Collection:
+
+•The Quizzes collection stores the main quiz content created by users or administrators.
+Each quiz is stored as a single document that contains all its related information inside it — this includes the quiz title, category, creator ID, and the list of questions.
+
+•Every quiz document has an array named questions. Each element in this array represents one question and contains:
+the question text, a list of options (usually four choices), and the correct answer.
+
+Attempts Collection:
+
+The Attempts collection acts as a bridge that connects users with the quizzes they play.
+Each attempt document represents a single play session of a user for a specific quiz.
+It contains:
+
+1. the user ID (indicating who played), 
+2. the quiz ID (which quiz was played),
+3. the final score, 
+4. and an answers array containing each question ID, the user’s selected option, and whether it was correct or not.
+
+
+How the Entities Are Linked:
+
+1. The Users collection identifies who is interacting with the system.
+2. The Quizzes collection holds what they are interacting with — the questions and options.
+3. The Attempts collection records how they interacted — their performance, selected answers, and score.
+
+Basic Mind Map:
+
+User → starts quiz → Quiz loaded from DB
+Quiz → played → Attempt created
+Attempt → summary updated → User profile
