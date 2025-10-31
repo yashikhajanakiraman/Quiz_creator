@@ -29,4 +29,21 @@ Quiz is created first by user, then user can log in again, and can choose whethe
 
 4. Sanjana G
 
+
 Timer - Either for the quiz as a whole or time per question
+
+Inputs 
+
+1. User info: username / email / password (if login system)
+2. Quiz details: quiz title, description, category, date created
+3. Questions: question text,options (A, B, C, D), correct answer
+4. User answers / game session: selected answers, points scored, total score, date attempted
+
+
+Outputs 
+
+1. All quizzes 
+2. Questions when playing
+3. Final score 
+4. History of quizzes played (with scores)
+5. My profile
