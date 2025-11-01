@@ -1,0 +1,75 @@
+header{
+    width: 100dvw;
+    height: 13dvh;
+    /* border: 2px solid red; */
+    padding: .2rem 1rem;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-container{
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid green; */
+    align-items: center;
+}
+.logo-container span{
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: wheat;
+    letter-spacing: 1px;
+}
+.h-logo{
+    width: 100px;
+}
+.head-link{
+    color: orange;
+    padding: .3rem;
+}
+.head-link:hover{
+    color: yellow;
+}
+.active{
+    background-color: orange;
+    color: #222;
+    font-weight: 600;
+    padding: .3rem;
+    border-radius: .6rem;
+}
+.active:hover{
+    color: #222;
+}
+.tab-container a{
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+
+}
+a{
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.tab-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid green; */
+}
+.login-container a{
+    padding: 1rem;
+    background: blue;
+    color: aqua;
+    border-radius: 1.6rem;
+}
+hr{
+    width: 60dvw;
+    text-align: center;
+    border-radius: 2rem;
+    margin: 0 auto;
+    background: gold;
+    margin-top: .5rem;
+}

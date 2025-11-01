@@ -2,21 +2,81 @@
 *{
     margin: 0;
     padding: 0;
+    /* color: wheat; */
     font-family: "Poppins", sans-serif;
 }
 body{
-    background: #222;
+    background: linear-gradient(to bottom right, #031149,#222);
     min-height: 100dvh;
     min-width: 100dvw;
     overflow-x: hidden;
 }
-
-header{
-    width: 100dvw;
-    height: 10dvh;
-    padding: .2rem 1rem;
+.gradient-sphere{
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -2;
+    opacity: 0;
 }
-.h-logo{
-    width: 120ox;
-    height: 120px;
+.circle-1{
+    width: 32rem;
+    height: 32rem;
+    background: radial-gradient(rgb(222, 14, 156),#223,violet);
+    top: 10rem;
+    left: 6.3rem;
+    animation: glitterNglow both;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    opacity: .5;
+}
+@keyframes glitterNglow {
+    to{
+        opacity: .9;
+    }
+}
+
+.top-container{
+    display: grid;
+    grid-template-columns: 45% 55%;
+    min-height: 80dvh;
+    /* border: 2px solid yellow; */
+}
+.left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left img{
+    padding-left: .2rem;
+    padding-bottom: .6rem;
+}
+.right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right .content{
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(100px);
+    border-radius: 2rem;
+    box-shadow: 0 0 8px lightblue;
+    border: .5px solid #222;
+    width: 38dvw;
+}
+.right .content h1{
+    text-align: center;
+    padding: .3rem;
+    padding-bottom: 2rem;
+    color: wheat;
+}
+.right p{
+    color: wheat;
+}
+.right .content h2{
+    padding-top: 1rem;
+    text-align: center;
+    color: orange;
+    letter-spacing: 1px;
 }
