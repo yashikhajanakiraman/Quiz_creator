@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background: linear-gradient(to bottom right, #031149,#222);
+    min-height: 100dvh;
+    min-width: 100dvw;
+    overflow-x: hidden;
+}
+.encloser{
+    margin: 3rem 0;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-content: center;
+    min-width: 100dvw;
+    min-height: 80dvh;
+}
+.left{
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.content h1{
+    text-align: center;
+    color: orange;
+    padding: 1.3rem;
+}
+.content p{
+    color: wheat;
+    padding: .5rem 1.3rem;
+    font-size: 1.29rem;
+    text-align: center;
+}
+.right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-container img{
+    width: 36dvw;
+    background: aliceblue;
+    border-radius: 50%;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.content a{
+    text-align: center;
+    padding: .8rem;
+    background: blue;
+    margin-top: 2rem;
+    color: aqua;
+    border-radius: 2rem;
+    border: .01px solid aqua;
+    box-shadow: 1px 1px 40px aqua;
+    transition: all 1s;
+}
+.content a:hover{
+    color: blue;
+    background: aqua;
+    box-shadow: 1px 1px 40px blue;
+    border: .01px solid blue;
+}

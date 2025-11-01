@@ -65,3 +65,20 @@ a{
     color: aqua;
     border-radius: 1.6rem;
 }
+hr{
+    width: 60dvw;
+    text-align: center;
+    border-radius: 50%;
+    height: 1px;
+    margin: 0 auto;
+    background: gold;
+    margin-top: .5rem;
+    animation-name: hrExpand;
+    animation-duration: 1.4s;
+    animation-direction: alternate;
+}
+@keyframes hrExpand {
+    from{
+        width: 0;
+    }
+}
