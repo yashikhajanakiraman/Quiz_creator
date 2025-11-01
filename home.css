@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background: #222;
+    min-height: 100dvh;
+    min-width: 100dvw;
+    overflow-x: hidden;
+}
+
+header{
+    width: 100dvw;
+    height: 10dvh;
+    padding: .2rem 1rem;
+}
+.h-logo{
+    width: 120ox;
+    height: 120px;
+}
