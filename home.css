@@ -50,26 +50,74 @@ body{
 .left img{
     padding-left: .2rem;
     padding-bottom: .6rem;
+    animation-name: imgAppear;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes imgAppear {
+    from{
+        transform: scale(0) rotate(-30deg);
+    }
 }
 .right{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+.right .explore-btn{
+    margin: 2rem;
+    margin-top: 3rem;
+    padding: .8rem;
+    box-shadow: 1px 1px 50px purple;
+    font-size: 1.5rem;
+    background-color: purple;
+    color: pink;
+    border-radius: 1.1rem;
+    transition: both 1s;
+    animation-name: btnAppear;
+    animation-duration: 1.8s;
+    animation-direction: alternate;
+    animation-delay: 1s;
+    transition: all 1s;
+    animation-fill-mode: forwards;
+    border: .1px solid pink;
+    transform: rotate(-20deg) scale(0);
+}
+@keyframes btnAppear {
+    to{
+        transform: rotate(0deg) scale(1);
+    }
+}
+.right .explore-btn:hover{
+    color: purple;
+    background: pink;
+    box-shadow: 1px 1px 20px violet;
+}
 .right .content{
     padding: 2rem;
+    margin-top: 5rem;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(100px);
     border-radius: 2rem;
     box-shadow: 0 0 8px lightblue;
     border: .5px solid #222;
     width: 38dvw;
+    animation-name: appear;
+    animation-duration: 1.5s;
+    animation-direction: alternate;
+}
+@keyframes appear {
+    from{
+        transform: translate(500px);
+    }
 }
 .right .content h1{
     text-align: center;
     padding: .3rem;
     padding-bottom: 2rem;
-    color: wheat;
+    color: yellow;
+    letter-spacing: 2px;
 }
 .right p{
     color: wheat;
@@ -79,4 +127,21 @@ body{
     text-align: center;
     color: orange;
     letter-spacing: 1px;
+}
+hr{
+    width: 60dvw;
+    text-align: center;
+    border-radius: 50%;
+    height: 1px;
+    margin: 0 auto;
+    background: gold;
+    margin-top: .5rem;
+    animation-name: hrExpand;
+    animation-duration: 1.4s;
+    animation-direction: alternate;
+}
+@keyframes hrExpand {
+    from{
+        width: 0;
+    }
 }
