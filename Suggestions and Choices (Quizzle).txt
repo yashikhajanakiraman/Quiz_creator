@@ -1,0 +1,18 @@
+Flexible Choices (Quizzle):
+-> No. of questions
+-> Timings
+-> Editable Questions (?)
+-> No. of options
+-> Correct answer Marks
+
+
+Questionable/Suggestions for Improvement:
+-> Deleting a quiz* (mostly can be added)
+-> Negative marking (?)
+-> Theming/categorizing the quiz
+-> Pausing the timer
+-> Retaking a Quiz
+
+Player Dashboard:
+-> Average Score
+-> No of quizzes they played and its individual scores
