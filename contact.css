@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background: linear-gradient(to bottom right, #031149,#222);
+    min-height: 100dvh;
+    min-width: 100dvw;
+    overflow-x: hidden;
+}
+.top-container{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    justify-content: center;
+    align-items: center;
+    min-height: 80dvh;
+}
+@keyframes contAppear {
+    from{
+        transform: scale(0) rotate(30deg);
+    }
+}
+.left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left img{
+    background: aliceblue;
+    border-radius: 50%;
+    width: 30dvw;
+    animation-name: imgAppear;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+}
+@keyframes imgAppear {
+    from{
+        transform: translateX(-500px);
+    }
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation-name: contAppear;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+}
+.content, .submitted{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(100px);
+    border-radius: 2rem;
+    box-shadow: 0 0 8px lightblue;
+    border: .5px solid #222;
+    width: 38dvw;
+}
+.content h1, .submitted h1{
+    letter-spacing: 1.5px;
+    color: aqua;
+    text-align: center;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.submitted a{
+    padding: .8rem;
+    background: aquamarine;
+    border-radius: 2rem;
+    color: #224;
+    margin-top: 2rem;
+    box-shadow: 1px 1px 80px blue;
+    font-weight: 800;
+    transition: all 1s;
+}
+.submitted a:hover{
+    background: blue;
+    color: aqua;
+    box-shadow: 1px 1px 80px aquamarine;
+}
+.submitted{
+    animation-name: submitted;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+}
+.submitted h2{
+    color: wheat;
+    letter-spacing: 1px;
+    text-align: center;
+}
+@keyframes submitted {
+    from{
+        transform: rotate(50deg) scale(0);
+    }
+}
+.combined{
+    display: grid;
+    grid-template-columns: .5fr 3fr;
+    justify-content: center;
+    background: transparent;
+    padding: 1rem;
+    padding-bottom: .1rem;
+    border-radius: 2rem;
+    align-items: center;
+    gap: 0rem;
+    width:33dvw;
+}
+.combined i{
+    text-align: center;
+    color: aquamarine;
+    background: linear-gradient(#224);
+    border: .1px solid aliceblue;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    padding: .5rem;
+    margin-left: .8rem;
+}
+input{
+    transition: all 1s;
+    height: 2.4rem;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    border: .1px solid aliceblue;
+    background: #224;
+    padding: 0 1rem;
+    font-size: 1.1rem;
+}
+input[type='text'], input[type='email'], input[type='number']{
+    color: wheat;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.txt{
+    margin-left: 1rem;
+}
+textarea{
+    margin: 0 20rem;
+    width: 29dvw;
+    border-radius: 1rem;
+    margin: 1rem;
+    background: #224;
+    border: .1px solid aliceblue;
+    outline: none;
+    font-size: 1.2rem;
+    color: wheat;
+    padding: .5rem 1.4rem;
+    height: 10dvh;
+}
+textarea::placeholder{
+    font-size: 1.2rem;
+
+}
+.btns{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 32dvw;
+}
+.btns input{
+    color: aqua;
+    cursor: pointer;
+}
+input:hover{
+    box-shadow: 1px 1px 200px aqua;
+}
+textarea:hover{
+    box-shadow: 1px 1px 10px aquamarine;
+}
