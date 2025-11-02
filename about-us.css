@@ -10,10 +10,16 @@ body{
     min-width: 100dvw;
     overflow-x: hidden;
 }
+.even{
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+.odd{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
 .encloser{
     margin: 3rem 0;
-    display: grid;
-    grid-template-columns: 50% 50%;
     align-items: center;
     justify-content: center;
     min-width: 100dvw;
@@ -29,6 +35,28 @@ body{
     text-align: center;
     color: orange;
     padding: 1.3rem;
+    position: relative;
+}
+.content h1::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    background: yellow;
+    border-radius: 2rem;
+    animation-name: mover;
+    animation-duration: 1.4s;
+    animation-iteration-count: 1;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    height: .8dvh;
+    top: 4.3rem;
+    left: 5rem;
+}
+@keyframes mover {
+    to{
+        width: 5dvw;
+    }
 }
 .content p{
     color: wheat;
@@ -41,16 +69,38 @@ body{
     align-items: center;
     justify-content: center;
 }
+.lft-img{
+    margin-left: 2rem;
+}
+.rt-img{
+    margin-right: 2rem;
+}
 .img-container img{
     width: 36dvw;
     background: aliceblue;
     border-radius: 50%;
+    animation-name: imgAppear;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+}
+@keyframes imgAppear {
+    from{
+        transform: scale(0) translate(2000px);
+    }
 }
 .content{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation-name: cntAppear;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+}
+@keyframes cntAppear {
+    from{
+        transform: scale(0) translate(-2000px);
+    }
 }
 .content a{
     text-align: center;

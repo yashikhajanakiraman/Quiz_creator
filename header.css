@@ -36,9 +36,11 @@ header{
     font-weight: 600;
     padding: .3rem;
     border-radius: .6rem;
+    transition: all 1s;
 }
 .active:hover{
-    color: #222;
+    color: #223;
+    box-shadow: 1px 1px 40px orange;
 }
 .tab-container a{
     letter-spacing: 1px;
@@ -64,6 +66,15 @@ a{
     background: blue;
     color: aqua;
     border-radius: 1.6rem;
+    transition: all 1s;
+    border: .1px solid blue;
+    box-shadow: 1px 1px 40px aqua;
+}
+.login-container a:hover{
+    background: aqua;
+    color: blue;
+    border: .1px solid aqua;
+    box-shadow: 1px 1px 40px blue;
 }
 hr{
     width: 60dvw;
