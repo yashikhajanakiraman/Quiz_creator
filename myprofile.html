@@ -3,32 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quizzle | Profile</title>
+  <title>Quizzle</title>
   <link rel="stylesheet" href="myprofile.css" />
-  <link rel="stylesheet" href="header.css">
 </head>
 <body>
   <header>
-        <div class="logo-container">
-            <img class="h-logo" src="Assets/Images/quizzle-logo-2-bgless.png" alt="Logo">
-            <span>Quizzle</span>
-        </div>
-        <div class="tab-container">
-            <a href="home.html" class="head-link">Home</a>
-            <a href="about-us.html" class="head-link">About US</a>
-            <a href="contact.html" class="head-link">Contact US</a>
-            <a href="#" class="active head-link">Dashboard</a>
-        </div>
-        <div class="login-container">
-            <a href="#">Profile</a>
-        </div>
-    </header>
-    <hr>
+    <div class="logo">Quizzle</div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
   <section class="profile-header">
-    <img src="" alt="Profile Avatar" class="avatar">
-    <h1 id="username">   </h1>
-    <button class="edit-btn">Edit Profile</button>
+    <div class="profile">
+      <h1 id="username">Username</h1>
+      <button class="edit-btn">Edit Profile</button>
+    </div>
   </section>
 
   <section class="stats">
@@ -52,8 +44,9 @@
 
   <section class="progress">
     <h2>Progress Level</h2>
-    <div class="progress-bar"><div class="fill" style="width: 70%;"></div></div>
-    <p></p>
+    <div class="progress-bar">
+      <div class="fill" style="width: 70%;"></div>
+    </div>
   </section>
 
   <section class="badges">
@@ -76,7 +69,7 @@
           <th>Points</th>
         </tr>
       </thead>
-      <tbody id="historyRows">
+      <tbody>
         <tr>
           <td></td>
           <td></td>
@@ -93,4 +86,3 @@
   </section>
 </body>
 </html>
-
