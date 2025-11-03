@@ -31,17 +31,21 @@ nav a:hover {
   color: #ff00cc;
 }
 
-.profile-header {
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: center;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
-.avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #ff00cc;
-  box-shadow: 0 0 15px #ff00cc;
+#username {
+  margin-top: 20px;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #f6c71b;
+  text-align: center;
 }
 
 .edit-btn {
@@ -53,6 +57,12 @@ nav a:hover {
   border-radius: 25px;
   cursor: pointer;
   box-shadow: 0 0 10px #00b3ff;
+  transition: 0.3s;
+}
+
+.edit-btn:hover {
+  background: #ff00cc;
+  box-shadow: 0 0 15px #ff00cc;
 }
 
 .stats {
