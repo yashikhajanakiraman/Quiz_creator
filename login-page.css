@@ -42,7 +42,7 @@ h3{
 .input-val{
     display: flex;
     align-items: center;
-    background-color:rgba(36, 153, 153, 0.8);
+    background-color:goldenrod;
     border-radius: 12px;
     padding: 16px 20px;
     margin-bottom: 20px;
@@ -60,11 +60,13 @@ h3{
     flex:1;
     font-size: 16px;
     outline: none;
-    color: white;
+    /* color: white; */
+    color:black;
 }
 
 .input-val input::placeholder{
-    color: rgba(255,255,255,0.8);
+    /* color: rgba(255,255,255,0.8); */
+    color: black;
 }
 
 button{
