@@ -1,0 +1,104 @@
+body{
+    background: linear-gradient(to bottom right, #031149,#222);
+    min-height: 100dvh;
+    min-width: 100dvw;
+    overflow-x: hidden;
+}
+.login-container a{
+    animation-name: present;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+@keyframes present {
+    from{
+        box-shadow: none;
+        border: 1px solid aquamarine;
+    }
+    to{
+        box-shadow: 0px 0px 10px aqua;
+    }
+}
+.top-container{
+    display: grid;
+    grid-template-columns: 2.5fr 3fr;
+    justify-content: center;
+    align-items: center;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.top-container .col img{
+    background: aqua;
+    margin-top: 3rem;
+    border-radius: 50%;
+    width: 32dvw;
+}
+.col-form h1{
+    color: aqua;
+    letter-spacing: 2px;
+}
+.col-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 5rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(100px);
+    border-radius: 2rem;
+    box-shadow: 0 0 8px lightblue;
+    border: .5px solid #222;
+    margin: .5rem;
+    width: 43dvw;
+}
+.form-cont{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.fld{
+    display: grid;
+    grid-template-columns: .5fr 3fr;
+    justify-content: center;
+    background: transparent;
+    padding: 1rem;
+    padding-bottom: .1rem;
+    border-radius: 2rem;
+    align-items: center;
+    gap: 0rem;
+    width:33dvw;
+}
+.fld i{
+    color: aqua;
+    font-size: 1.5rem;
+    background-color: #223;
+    padding: .8rem;
+    border-radius: 50%;
+    border: .1px solid aquamarine;
+}
+input[type='text']{
+    outline: none;
+    border: .1px solid aquamarine;
+    background: #223;
+    border-radius: 2rem;
+    height: 2.5rem;
+    padding: .01rem 1.2rem;
+    font-size: 1.1rem;
+    color: azure;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+input::placeholder{
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
