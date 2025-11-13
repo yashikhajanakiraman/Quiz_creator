@@ -22,6 +22,7 @@ body{
 }
 .top-container{
     display: grid;
+    min-height: 80dvh;
     grid-template-columns: 2.5fr 3fr;
     justify-content: center;
     align-items: center;
@@ -85,7 +86,7 @@ body{
     border-radius: 50%;
     border: .1px solid aquamarine;
 }
-input[type='text']{
+input[type='text'], input[type='password']{
     outline: none;
     border: .1px solid aquamarine;
     background: #223;
@@ -101,4 +102,59 @@ input::placeholder{
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 1px;
+}
+.dyn-btn button{
+    position: relative;
+    z-index: 1;
+    bottom: 1rem;
+    border-radius: 2rem;
+    border: none;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    padding: .4rem .6rem;
+    margin-top: 2.5rem;
+    background: linear-gradient(to bottom right, orange,wheat);
+    overflow: hidden;
+}
+.dyn-btn button::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: var(--fill-width, 0%);
+    background: linear-gradient(to bottom right, aquamarine,aqua);
+    z-index: 0;
+    transition: width 0.3s ease;
+}
+.dyn-btn button span {
+    position: relative;
+    z-index: 1;
+}
+.dyn-btn{
+    display: flex;
+    justify-content: space-around;
+    min-width: 30dvw;
+}
+.texter{
+    padding: .8rem;
+    background: wheat;
+    margin-top: 1rem;
+    border-radius: 2rem;
+    border: .1px solid yellow;
+}
+.status{
+    color: red;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    text-decoration: underline;
+}
+.msg{
+    padding-left: .5rem;
+}
+#nxtButton{
+    cursor: pointer;
+    transition: 1s;
+    display: none;
+    background: aqua;
 }
