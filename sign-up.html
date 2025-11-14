@@ -29,7 +29,7 @@
     <hr>
     <div class="top-container">
         <div class="col">
-            <img src="Assets/Images/sign-up-wbg.gif" alt="Sign-up">
+            <img class="animate" id="signImg" src="Assets/Images/sign-up-wbg.gif" alt="Sign-up">
         </div>
         <div class="col-form" id="inputGetter">
             <h1>Sign Up</h1>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="fld">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="text" id="userEmail" placeholder="Email Goes Here..." required>
+                        <input type="email" id="userEmail" placeholder="Email Goes Here..." required>
                     </div>
                     <div class="dyn-btn">
                         <button onclick="proceedNow()" id="dynButton" href=""><span>Proceed &rarr;</span></button>
@@ -51,7 +51,7 @@
         </div>
         <div class="col-form" id="passwordSetter" style="display: none;">
             <h1>Let's Set Your Password !</h1>
-            <form action="">
+            <form id="psForm" action="">
                 <div class="form-cont">
                     <div class="fld">
                         <i class="fa-solid fa-lock"></i>
@@ -63,14 +63,14 @@
                     </div>
                     <div class="texter"><span class="status">Strong or Weak</span><span class="msg"> Password</span></div>
                     <div class="dyn-btn">
-                        <button id="nxtButton" href=""><span>Proceed &rarr;</span></button>
+                        <button onclick="proceedCallMenu()" id="nxtButton" href=""><span>Proceed &rarr;</span></button>
                     </div>
                 </div>
             </form>
         </div>
         <div class="col-form" id="numberGetter" style="display: none;">
             <h1>Let's Add your Details !</h1>
-            <form action="">
+            <form id="pForm" action="">
                 <div class="form-cont" id="numberInputter">
                     <div class="fld">
                         <i class="fa-solid fa-phone"></i>
@@ -85,14 +85,14 @@
         </div>
         <div class="col-form" id="conformator" style="display: none;">
             <h1 style="text-align: center;">You are Now a part of Quizzle Family !!</h1>
-            <form action="">
+            <form id="cForm" action="">
                 <div class="form-cont" id="numberInputter">
-                    <h2 style="text-align: center; color: wheat;">Account Created Successuflly ! Now you can Login</h2>
-                    <div class="dyn-btn">
-                        <button style="background: linear-gradient(to bottom right, aquamarine,aqua); cursor: pointer;" id="logButton" href=""><span>Login &rarr;</span></button>
-                    </div>
+                    <h2 style="text-align: center; color: wheat;">Account Created Successuflly !<br> Now you can Login</h2>
                 </div>
             </form>
+            <div class="dyn-btn">
+                <a href="login-page.html"><button style="background: linear-gradient(to bottom right, aquamarine,aqua); cursor: pointer;" id="logButton" href=""><span>Login &rarr;</span></button></a>
+            </div>
         </div>
     </div>
     <hr>

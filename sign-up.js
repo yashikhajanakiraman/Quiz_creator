@@ -14,8 +14,13 @@ const numFld = document.getElementById('mobileNumb');
 const addBtn = document.getElementById('addButton');
 const conformator = document.getElementById('conformator');
 const numberGetter = document.getElementById('numberGetter');
+const psForm = document.getElementById('psForm');
+const pForm = document.getElementById('pForm');
+const cForm = document.getElementById('cForm');
+const signImg = document.getElementById('signImg');
 let completed = 0;
 function updateButtonBackground() {
+    console.log("came")
     completed = 0;
     if (fullName.value.trim() !== "") completed += 1;
     if (userEmail.value.trim() !== "") completed += 1;
@@ -80,6 +85,7 @@ function updatePass(){
             }
         }
     }
+    texter.style.display = 'block';
 }
 
 function updateNumber() {
@@ -90,12 +96,8 @@ function updateNumber() {
     }else{
         addBtn.style.removeProperty('cursor');
     }
-    if(numFld.value.length > 10){
-        console.log('h3')
-        document.querySelector('.dyn-btn button::before').style.background = 'red';
-    }
     addBtn.style.setProperty('--fill-width', `${percent}%`);
-    if(isNaN(Number(numFld.value))){
+    if(isNaN(Number(numFld.value)) || numFld.value.length > 10){
         addBtn.style.setProperty('--fill-width', `0%`);
         addBtn.style.background = 'red';
     }else{
@@ -108,6 +110,8 @@ function proceedNow(){
     if(completed == 2){
         inputGetter.style.display = 'none';
         passwordSetter.style.display = 'flex';
+        signImg.src = 'Assets/Images/password-lock.gif';
+        signImg.classList.add('animate');
     }
 }
 pass1.addEventListener('input',updatePass);
@@ -118,10 +122,31 @@ pass2.addEventListener('blur',updatePass);
 form.addEventListener('submit', function(event){
     event.preventDefault();
 });
+psForm.addEventListener('submit', function(event){
+    event.preventDefault();
+});
+pForm.addEventListener('submit', function(event){
+    event.preventDefault();
+});
 
-function completed(act){
+function complete(act){
     if(act){
         conformator.style.display = 'flex';
         numberGetter.style.display = 'none';
+        signImg.src = 'Assets/Images/tik.gif';
+    }else{
+        if(numFld.value.length === 10 && !isNaN(numFld.value)){
+            conformator.style.display = 'flex';
+            numberGetter.style.display = 'none';
+            signImg.src = 'Assets/Images/tik.gif';
+        }else{
+            alert("Invalid Number Inputted !");
+        }
     }
+}
+
+function proceedCallMenu(){
+    passwordSetter.style.display = 'none';
+    numberGetter.style.display = 'flex';
+    signImg.src = 'Assets/Images/phone.gif';
 }

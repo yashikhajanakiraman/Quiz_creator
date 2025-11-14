@@ -58,6 +58,15 @@ body{
     border: .5px solid #222;
     margin: .5rem;
     width: 43dvw;
+    animation-name: colF;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+}
+@keyframes colF {
+    from{
+        transform: scale(0) rotate(-30deg);
+    }
 }
 .form-cont{
     margin: 1rem;
@@ -86,7 +95,7 @@ body{
     border-radius: 50%;
     border: .1px solid aquamarine;
 }
-input[type='text'], input[type='password']{
+input[type='text'], input[type='password'], input[type='email']{
     outline: none;
     border: .1px solid aquamarine;
     background: #223;
@@ -123,7 +132,7 @@ input::placeholder{
     top: 0; left: 0;
     height: 100%;
     width: var(--fill-width, 0%);
-    background: linear-gradient(to bottom right, aquamarine,aqua);
+    background: var(--before-color,linear-gradient(to bottom right, aquamarine,aqua));
     z-index: 0;
     transition: width 0.3s ease;
 }
@@ -137,6 +146,7 @@ input::placeholder{
     min-width: 30dvw;
 }
 .texter{
+    display: none;
     padding: .8rem;
     background: wheat;
     margin-top: 1rem;
@@ -157,4 +167,15 @@ input::placeholder{
     transition: 1s;
     display: none;
     background: aqua;
+}
+.animate{
+    animation-name: imgAni;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+}
+@keyframes imgAni {
+    from{
+        transform: scale(0);
+    }
 }
