@@ -15,22 +15,18 @@
     <div class="login-details">
         <h3>Login Details</h3>
         <div class="input-val">
-            <input type="text" id="name" placeholder="👤 Username " required>
+            <input type="email" id="userEmail" placeholder="👤 Email " required>
         </div>
         <div class="input-val">
-            <input type="password" id="password" placeholder="🛡️ Password " required>
+            <input type="password" id="userPassword" placeholder="🛡️ Password " required>
         </div>
     </div>
     <div class="btn-cont">
-        <button id="mybutton">Sign In</button>
+        <button id="mybutton" onclick="logIn()">Sign In</button>
         <a href="sign-up.html"><button id="mybutton">Sign UP</button></a>
     </div>
 
-    <script>
-        document.getElementById("mybutton").onclick=function(){
-            location.href="home.html";
-        };
-    </script>
+    <script type="module" src="login-page.js"></script>
 
 </body>
 </html>
