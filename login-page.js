@@ -28,6 +28,9 @@ async function logIn(){
             const userDoc = queryRes.docs[0];
             const userData = userDoc.data();
             if(userPassword.value == userData.password){
+                localStorage.setItem("fName",userData.fName);
+                localStorage.setItem("userEmail",userData.email);
+                localStorage.setItem("mobileNumber",userData.phone);
                 alert("Login Success !");
             }else{
                 alert("Wrong Password Provided !")

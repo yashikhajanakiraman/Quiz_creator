@@ -21,6 +21,11 @@ const signImg = document.getElementById('signImg');
 const mobileNumb = document.getElementById('mobileNumb');
 let completed = 0;
 
+if(localStorage.getItem('fName') != null){
+    let dynBtn = document.getElementById('dynBtn');
+    dynBtn.innerHTML = "Dashboard";
+    dynBtn.href = "myprofile.html";
+}
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getFirestore, collection, addDoc, getDoc, setDoc, onSnapshot, doc, deleteDoc } 
