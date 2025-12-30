@@ -22,7 +22,7 @@
             <a href="contact.html" class="head-link">Contact US</a>
         </div>
         <div class="login-container">
-            <a href="#">LogIN / SignUP</a>
+            <a id="dynBtn" href="login-page.html">LogIN / SignUP</a>
         </div>
     </header>
     <hr>
@@ -66,5 +66,12 @@
             </div>
         </div>
     </div>
+    <script>
+        if(localStorage.getItem('fName') != null){
+            let dynBtn = document.getElementById('dynBtn');
+            dynBtn.innerHTML = "Dashboard";
+            dynBtn.href = "myprofile.html";
+        }
+    </script>
 </body>
 </html>
