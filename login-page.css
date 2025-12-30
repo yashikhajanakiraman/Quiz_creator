@@ -49,7 +49,7 @@ header{
 .head-link:hover{
     color: yellow;
 }
-.active{
+/*.active{
     background-color: orange;
     color: #222;
     font-weight: 600;
@@ -60,7 +60,7 @@ header{
 .active:hover{
     color: #223;
     box-shadow: 1px 1px 40px orange;
-}
+}*/
 .tab-container a{
     letter-spacing: 1px;
     font-size: 1.3rem;
