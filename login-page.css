@@ -14,7 +14,8 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100dvh;
+    min-width: 100dvw;
 }
 
 header{
@@ -104,10 +105,10 @@ hr{
 
 
 h1{
-    text-shadow: 0 0 4px gold;
+    text-shadow: 0 0 4px orange;
 }
 h3{
-    text-shadow:  0 0 6px rgb(231, 205, 53);
+    text-shadow:  0 0 6px rgb(255, 166, 0);
 }
 
 .login-details{
@@ -133,7 +134,7 @@ h3{
 .input-val{
     display: flex;
     align-items: center;
-    background-color:rgb(237,153,16);
+    background-color:orange;
     border-radius: 12px;
     padding: 16px 20px;
     margin-bottom: 20px;
