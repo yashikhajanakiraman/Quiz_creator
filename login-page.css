@@ -16,7 +16,8 @@ body{
     justify-content: center;
     min-height: 100dvh;
     min-width: 100dvw;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 header{
