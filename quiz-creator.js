@@ -38,22 +38,18 @@ window.modeSpecify = modeSpecify;
 
 
 function construct(qid) {
-    // Main container
     const questCont = document.createElement("div");
     questCont.className = "questCont";
     questCont.id = qid;
 
-    // Question number
     const qno = document.createElement("div");
     qno.id = "qno";
     qno.textContent = qid.replace(/\D/g, "") || "";
     
-    // Question textarea
     const question = document.createElement("textarea");
     question.id = "question";
     question.placeholder = "Question Goes Here...";
 
-    // Options container
     const options = document.createElement("div");
     options.className = "options";
 
@@ -73,13 +69,11 @@ function construct(qid) {
         options.appendChild(input);
     });
 
-    // Hint input
     const hint = document.createElement("input");
     hint.type = "text";
     hint.id = "hint";
     hint.placeholder = "Hint Goes Here...";
 
-    // Button container
     const btnCont = document.createElement("div");
     btnCont.id = "btnCont";
 
@@ -90,7 +84,6 @@ function construct(qid) {
     nxt.textContent = "Save and Next";
 
     btnCont.appendChild(nxt);
-    // Correct answer selector
     const correctSelect = document.createElement("select");
     correctSelect.id = "correct";
 
@@ -110,7 +103,6 @@ function construct(qid) {
     });
 
 
-    // Assemble everything
     questCont.appendChild(qno);
     questCont.appendChild(question);
     questCont.appendChild(options);
@@ -130,18 +122,14 @@ function createQuiz() {
     first.style.display = 'none';
     questionsContainer.style.removeProperty('display');
 
-    // Reset state (important if user refreshes or re-enters)
     currentQ = 1;
 
-    // Create first question
     const q1 = construct('Q1');
     questionsContainer.appendChild(q1);
 
-    // Show only Q1
     hideAllQuestions();
     q1.style.display = 'block';
 
-    // Ensure buttons are correct
     handleSaveQuizButton(1);
 }
 window.createQuiz = createQuiz;
@@ -149,19 +137,16 @@ window.createQuiz = createQuiz;
 let currentQ = 1;
 const MIN_QUESTIONS = 5;
 
-/* Utility: hide all questions */
 function hideAllQuestions() {
     document.querySelectorAll('.questCont').forEach(q => {
         q.style.display = 'none';
     });
 }
 
-/* Utility: get question container */
 function getQ(qid) {
     return document.getElementById(`Q${qid}`);
 }
 
-/* Add Previous button if needed */
 function addPreviousButton(btnCont, qid) {
     if (qid > 1 && !btnCont.querySelector('.prev')) {
         const prev = document.createElement('div');
@@ -172,17 +157,12 @@ function addPreviousButton(btnCont, qid) {
     }
 }
 
-/* Handle Save Quiz button placement */
 function handleSaveQuizButton(currentQid) {
-    // Remove Save Quiz from all containers
     document.querySelectorAll('.saveQuiz').forEach(btn => btn.remove());
 
     const totalQuestions =
         questionsContainer.querySelectorAll('.questCont').length;
 
-    // Show Save Quiz ONLY if:
-    // 1) Minimum questions reached
-    // 2) This is the LAST question
     if (totalQuestions >= MIN_QUESTIONS && currentQid === totalQuestions) {
         const btnCont = getQ(currentQid).querySelector('#btnCont');
 
@@ -196,7 +176,6 @@ function handleSaveQuizButton(currentQid) {
 }
 
 
-/* Show specific question */
 function showQuestion(qid) {
     hideAllQuestions();
     const q = getQ(qid);
@@ -207,45 +186,38 @@ function showQuestion(qid) {
     }
 }
 
-/* Save and Next */
+
 function saveAndNext(event) {
     const parentQ = event.target.closest('.questCont');
 
-    // Scoped access
     const question = parentQ.querySelector('#question');
     const options = parentQ.querySelectorAll('.opt');
     const correct = parentQ.querySelector('#correct');
 
-    // Trimmed values
     const questionVal = question.value.trim();
     const correctVal = correct.value;
 
     let isValid = true;
 
-    // Question check
     if (!questionVal) {
         isValid = false;
     }
 
-    // Options check
     options.forEach(opt => {
         if (!opt.value.trim()) {
             isValid = false;
         }
     });
 
-    // Correct answer check
     if (!correctVal) {
         isValid = false;
     }
 
-    // Stop navigation if invalid
     if (!isValid) {
         alert('Please fill the question, all options, and select the correct answer.');
         return;
     }
 
-    // ---------- navigation logic ----------
     const qid = Number(parentQ.id.replace('Q', ''));
     const nextQid = qid + 1;
 
@@ -273,7 +245,7 @@ async function saveQuiz() {
     const questionsArr = [];
     const optionsObj = {};
     const correctAnswersArr = [];
-    const hintsArr = []; // ✅ NEW: hints array
+    const hintsArr = [];
 
     const allQuestions = document.querySelectorAll('.questCont');
 
@@ -284,7 +256,7 @@ async function saveQuiz() {
         const questionEl = qCont.querySelector('#question');
         const options = qCont.querySelectorAll('.opt');
         const correctEl = qCont.querySelector('select');
-        const hintEl = qCont.querySelector('#hint'); // ✅ NEW
+        const hintEl = qCont.querySelector('#hint'); 
 
         // Final safety validation
         if (!questionEl || !correctEl || !hintEl) {
@@ -294,7 +266,7 @@ async function saveQuiz() {
 
         const question = questionEl.value.trim();
         const correct = correctEl.value;
-        const hint = hintEl.value.trim(); // ✅ NEW (can be empty)
+        const hint = hintEl.value.trim(); 
 
         if (!question || !correct) {
             alert(`Question ${qNo} is incomplete.`);
@@ -320,10 +292,9 @@ async function saveQuiz() {
         questionsArr.push(question);
         optionsObj[qNo] = optionValues;
         correctAnswersArr.push(correct);
-        hintsArr.push(hint); // ✅ NEW
+        hintsArr.push(hint);
     }
 
-    // Debug (optional)
     console.log("Questions:", questionsArr);
     console.log("Options Map:", optionsObj);
     console.log("Correct Answers:", correctAnswersArr);
@@ -352,7 +323,7 @@ async function saveQuiz() {
             questions: questionsArr,
             options: optionsObj,
             correctAnswers: correctAnswersArr,
-            hints: hintsArr, // ✅ NEW FIELD SAVED
+            hints: hintsArr, 
             totalQuestions: questionsArr.length,
             createdAt: date
         });
@@ -388,5 +359,5 @@ async function isQuizIdExists(qzid) {
     const quizRef = doc(db, "quizes", qzid);
     const quizSnap = await getDoc(quizRef);
 
-    return quizSnap.exists(); // true or false
+    return quizSnap.exists(); 
 }
