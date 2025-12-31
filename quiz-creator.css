@@ -7,7 +7,7 @@
 body{
     background: linear-gradient(to bottom right, #031149,#222);
     min-height: 100dvh;
-    min-width: 100dvw;
+    min-width: 102dvw;
     overflow-x: hidden;
 }
 .top-container{
@@ -15,16 +15,24 @@ body{
     place-items: center;
     flex-direction: column;
     margin: 2rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 #first{
     display: grid;
     grid-template-columns: 35dvw auto;
     width: 95dvw;
 }
-img{
+.stImg{
     width: 35dvw;
     border-radius: 50%;
+    animation-name: imgAppear;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes imgAppear {
+    from{
+        transform: scale(0) translateX(-40rem);
+    }
 }
 .start{
     margin: 1.5rem auto;
@@ -34,11 +42,239 @@ img{
     border-radius: 2rem;
     box-shadow: 0 0 8px lightblue;
     border: .5px solid #222;
-    min-width: 45dvw;
+    width: 49dvw;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    animation-name: stAppear;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes stAppear {
+    from{
+        transform: scale(0) translateX(40rem);
+    }
 }
 h1{
     text-align: center;
     color: aqua;
     letter-spacing: 2px;
     padding: .8rem;
+}
+p{
+    text-align: center;
+    color: coral;
+    word-spacing: 2px;
+    letter-spacing: 1.5px;
+    font-size: 1.08rem;
+}
+#quizName{
+    min-width: 20dvw;
+    background: #031149;
+    border: none;
+    padding: .8rem;
+    border-radius: 2rem;
+    border: 2px solid aqua;
+    outline: none;
+    color: wheat;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+#quizName::placeholder{
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+i{
+    background: #031149;
+    padding: .8rem;
+    border-radius: 50%;
+    color: aquamarine;
+    border: 2px solid aqua;
+    font-size: 1.8rem;
+    transform: rotate(90deg);
+}
+.combined{
+    margin: 2rem auto;
+    display: flex;
+    gap: .7rem;
+    margin-bottom: 1.3rem;
+}
+.modeSelect{
+    min-width: 40dvw;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 2px solid aqua;
+    background: #031149;
+    align-items: center;
+}
+#txt{
+    color: aliceblue;
+    font-weight: 800;
+    font-size: 1.1rem;
+    padding: .4rem;
+    letter-spacing: 1px;
+}
+.mode{
+    color: violet;
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: .4rem;
+    transition: all 1s;
+}
+.mode:hover{
+    color: aliceblue;
+}
+.Mactive{
+    background: violet;
+    padding-left: .6rem;
+    padding-right: .6rem;
+    color: black;
+    border-radius: 2rem;
+    border: 1px solid #031149;
+}
+.Mactive:hover{
+    box-shadow: 0 0 50px aqua;
+}
+.createBtn{
+    padding: .7rem;
+    font-size: 1.2rem;
+    background: #031149;
+    margin: 1rem;
+    border-radius: 2rem;
+    color: aqua;
+    border: 2px solid aquamarine;
+    font-weight: 800;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 1s;
+}
+.createBtn:hover{
+    border: none;
+    box-shadow: 0 0 100px aquamarine;
+}
+.questions{
+    margin: 2rem;
+    width: 98dvw;
+    display: grid;
+    grid-template-columns: 35dvw auto;
+    place-items: center;
+}
+.questCont{
+    width: 50dvw;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(100px);
+    border-radius: 2rem;
+    box-shadow: 0 0 8px lightblue;
+    border: .5px solid #222;
+    animation-name: stAppear;
+    animation-duration: 1.5s;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    padding: .8rem 2rem;
+}
+#qno{
+    padding: .5rem;
+    background-color: aqua;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: 900;
+    width: 2.4dvw;
+    text-align: center;
+    border: 2px solid black;
+}
+textarea{
+    outline: none;
+    background: #031149;
+    border-radius: 2rem;
+    padding: 1rem;
+    width: 40dvw;
+    margin: 1rem;
+    border: 2px solid aquamarine;
+    color: coral;
+    font-size: 1.1rem;
+    letter-spacing: 1.8px;
+    font-weight: 700;
+}
+textarea::placeholder{
+    color: wheat;
+    font-size: 1.1rem;
+    letter-spacing: 1.8px;
+    font-weight: 700;
+}
+.options{
+    width: 50dvw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: 1rem;
+    margin: .5rem;
+}
+.opt{
+    background: lightblue;
+    border: 2px solid darkblue;
+    border-radius: 2rem;
+    padding: .7rem;
+    color: blue;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+.opt::placeholder{
+    color: black;
+    font-size: 1.1rem;
+}
+#hint{
+    margin-left: 8rem;
+    margin-top: .4rem;
+    margin-bottom: .4rem;
+    background: #031149;
+    padding: .7rem;
+    border: 2px solid aqua;
+    border-radius: 2rem;
+    width: 27dvw;
+    color: wheat;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+}
+#btnCont{
+    display: flex;
+    justify-content: space-around;
+    width: 43dvw;
+    align-items: center;
+}
+.btn{
+    padding: .7rem;
+    background: aqua;
+    border-radius: 2rem;
+    border: 2px solid #031149;
+    color: #031149;
+    margin: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 50px aliceblue;
+    transition: all 1s;
+    margin-bottom: 0;
+}
+.btn:hover{
+    box-shadow: 0 0 50px #031149;
+}
+#correct{
+    grid-column: span 2;
+    color: blue;
+    font-size: 1.4rem;
+    padding-left: .5rem;
+    background: #031149;
+    height: 1.8rem;
+    border-radius: 2rem;
+}
+.first{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
 }

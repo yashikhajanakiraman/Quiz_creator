@@ -17,27 +17,28 @@ const db = getFirestore(app);
 let userEmail = document.getElementById('userEmail');
 let userPassword = document.getElementById('userPassword');
 
-async function logIn(){
-    if(userEmail.value.trim() === userEmail.value && userPassword.value.trim() === userPassword.value){
-        const userRef = collection(db,'users');
-        const q = query(userRef,where('email','==',userEmail.value))
-        const queryRes = await getDocs(q);
-        if(queryRes.empty){
-            alert("Wrong Email Provided !")
-        }else{
-            const userDoc = queryRes.docs[0];
-            const userData = userDoc.data();
-            if(userPassword.value == userData.password){
-                localStorage.setItem("fName",userData.fName);
-                localStorage.setItem("userEmail",userData.email);
-                localStorage.setItem("mobileNumber",userData.phone);
-                alert("Login Success !");
-            }else{
-                alert("Wrong Password Provided !")
-            }
-        }
-    }else{
-        alert("Remove the Leading spaces for email and password");
+async function logIn() {
+    const usersRef = collection(db, "users");
+    const q = query(usersRef, where("email", "==", userEmail.value));
+    const snapshot = await getDocs(q);
+
+    if (snapshot.empty) {
+        alert("User not found");
+        return;
     }
+
+    // 👇 directly access the only document
+    const docSnap = snapshot.docs[0];
+    const data = docSnap.data();
+
+    if (data.password !== userPassword.value) {
+        alert("Incorrect password");
+        return;
+    }
+
+    localStorage.setItem("userId", docSnap.id);
+    localStorage.setItem("email", data.email);
+
 }
+
 window.logIn = logIn;

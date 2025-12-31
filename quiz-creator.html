@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="quiz-creator.css">
     <link rel="icon" href="Assets/Images/quizzle-logo-2-bgless.png">
+    <script src="https://kit.fontawesome.com/dc4390d531.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="gradient-sphere circle-1"></div>
@@ -19,7 +20,7 @@
         <div class="tab-container">
             <a href="index.html" class="head-link">Home</a>
             <a href="about-us.html" class="head-link">About US</a>
-            <a href="#" class="head-link">Contact US</a>
+            <a href="contact.html" class="head-link">Contact US</a>
         </div>
         <div class="login-container">
             <a id="dynBtn" href="login-page.html">LogIN / SignUP</a>
@@ -28,11 +29,29 @@
     <hr>
     <div class="top-container">
         <div id="first">
-               <img src="Assets/Images/newQuiz.gif" alt="">
+               <img class="stImg" src="Assets/Images/newQuiz.gif" alt="">
                <div class="start">
                     <h1>Create Your Quizzes</h1>
+                    <p>This space lets you design a custom quiz based on your interests or learning goals. Each quiz must contain at least 5 questions, and you can extend it beyond that based on your preference. Once created, your quiz can be kept private or shared with others to play.</p>
+                    <div class="combined">
+                        <i class="fa-brands fa-airbnb"></i>
+                        <input id="quizName" type="text" placeholder="Your Quiz Name Goes Here...">
+                    </div>
+                    <div class="modeSelect">
+                        <div id="txt">Quiz Mode</div>
+                        <div onclick="modeSpecify(event)" class="mode Mactive" id="mdPublic">Public</div>
+                        <div onclick="modeSpecify(event)" class="mode" id="mdPrivate">Private</div>
+                    </div>
+                    <div class="createBtn" onclick="createQuiz()">Create</div>
                </div>
         </div>
+        <div class="questions" style="display: none;">
+            <img src="Assets/Images/add.gif" alt="" class="stImg">
+            <div class="first" id="saving" style="display: none;">
+                <h1>Saving Your Quiz <br> Please Wait...</h1>
+            </div>
+        </div>
     </div>
+    <script type="module" src="quiz-creator.js"></script>
 </body>
 </html>
