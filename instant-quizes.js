@@ -1,3 +1,5 @@
+import CONFIG from './config.js';
+const API_KEY = CONFIG.GEMINI_KEY;
 let selection = document.getElementById("selection");
 let topic = '';
 let difficulty = '';
@@ -20,7 +22,6 @@ let stBtn = null;
 let qno = 0
 let timeCount = 0;
 async function startQuiz() {
-    const API_KEY = "AIzaSyDfsURTItmNnRPI8sqgJOLig_5FmasWrRU";
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
     try{
         let h1 = document.createElement('h1');
@@ -118,6 +119,7 @@ JSON format:
         console.log("Error: ",error)
     }
 }
+window.startQuiz = startQuiz;
 
 function showQuestion(){
     let elems = document.querySelectorAll('.optio');
@@ -138,6 +140,7 @@ function showQuestion(){
     };
     startTimer(timeCount);
 }
+window.showQuestion = showQuestion;
 
 function nextQuestion(){
     currentQuestion++;
@@ -148,6 +151,7 @@ function nextQuestion(){
         fetchResults();
     }
 }
+window.nextQuestion = nextQuestion;
 function select(event){
     topic = event.target.innerHTML;
     let para = document.getElementById('para');
@@ -173,6 +177,7 @@ function select(event){
     optCont.appendChild(moderate);
     optCont.appendChild(hard);
 }
+window.select = select;
 
 function setDifficulty(event){
     optCont.innerHTML = '';
@@ -187,6 +192,7 @@ function setDifficulty(event){
     stBtn.onclick = startQuiz;
     optCont.appendChild(stBtn);
 }
+window.setDifficulty = setDifficulty;
 
 function startTimer(ment){
     let timer = document.getElementById('timer');
@@ -207,6 +213,7 @@ function startTimer(ment){
         }
     },1000)
 }
+window.startTimer = startTimer;
 
 function clicked(event){
     let elems = document.querySelectorAll('.optio');
@@ -218,10 +225,12 @@ function clicked(event){
     event.target.style.color = 'lightblue';
     answers[currentQuestion] = event.target.innerHTML;
 }
+window.clicked = clicked;
 function endQuiz(){
     let quizzer = document.getElementsByClassName('quizzer')[0];
     quizzer.innerHTML = '';
 }
+window.endQuiz = endQuiz;
 function fetchResults(){
     let score = 0;
     let ign = 0;
@@ -245,6 +254,7 @@ function fetchResults(){
     let scored = document.getElementById('scored');
     scored.innerHTML = score + '/' + qno;
 }
+window.fetchResults = fetchResults;
 function displaySolution(){
     resuter.style.display = 'none';
     let ansCont = document.getElementById('ansCont');
@@ -339,3 +349,4 @@ function displaySolution(){
         ansCont.appendChild(Aanswer);
     }
 }
+window.displaySolution = displaySolution;
