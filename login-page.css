@@ -147,11 +147,6 @@ h3{
     padding: 1rem;
 }
 
-/*.input-val:focus-within{
-    border-color:pink;
-    box-shadow:0 0 10px #0b0f33;
-}*/
-
 .input-val:focus-within{
     border-color: rgba(91, 45, 139, 0.6);
     box-shadow: 0 0 0 3px rgba(91, 45, 139, 0.25);
@@ -163,12 +158,10 @@ h3{
     flex:1;
     font-size: 16px;
     outline: none;
-    /* color: white; */
     color:black;
 }
 
 .input-val input::placeholder{
-    /* color: rgba(255,255,255,0.8); */
     color: black;
 }
 
