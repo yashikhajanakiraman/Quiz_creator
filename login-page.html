@@ -8,29 +8,42 @@
     <title>Login Page</title>
 </head>
 <body>
+    <div class="gradient-sphere circle-1"></div>
+    <div class="gradient-sphere circle-2"></div>
+    <header>
+        <div class="logo-container">
+            <a href="home.html"><img class="h-logo" src="Assets/Images/quizzle-logo-2-bgless.png" alt="Logo"></a>
+            <span>Quizzle</span>
+        </div>
+        <div class="tab-container">
+            <a href="home.html" class="head-link">Home</a>
+            <a href="#" class="head-link">About US</a>
+            <a href="contact.html" class="head-link">Contact US</a>
+        </div>
+        <div class="login-container">
+            <a href="#">LogIN / SignUP</a>
+        </div>
+    </header>
+    <hr>
     <a href="home.html"><img src="Assets/Images/quizzle-logo-2-bgless.png" width="220px" height="170px"></a>
-    <h1 style="color: goldenrod;">Quizzle</h1>
+    <h1 style="color: orange;">Quizzle</h1>
     <h3 style="margin-top: 4px;">Your One Stop Destination For Responsive Quizzes</h3>
     <br>
     <div class="login-details">
         <h3>Login Details</h3>
         <div class="input-val">
-            <input type="text" id="name" placeholder="👤 Username " required>
+            <input type="email" id="userEmail" placeholder="👤 Email " required>
         </div>
         <div class="input-val">
-            <input type="password" id="password" placeholder="🛡️ Password " required>
+            <input type="password" id="userPassword" placeholder="🛡️ Password " required>
         </div>
     </div>
     <div class="btn-cont">
-        <button id="mybutton">Sign In</button>
+        <button id="mybutton" onclick="logIn()">Sign In</button>
         <a href="sign-up.html"><button id="mybutton">Sign UP</button></a>
     </div>
 
-    <script>
-        document.getElementById("mybutton").onclick=function(){
-            location.href="home.html";
-        };
-    </script>
+    <script type="module" src="login-page.js"></script>
 
 </body>
 </html>

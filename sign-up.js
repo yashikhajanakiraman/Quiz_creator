@@ -18,9 +18,34 @@ const psForm = document.getElementById('psForm');
 const pForm = document.getElementById('pForm');
 const cForm = document.getElementById('cForm');
 const signImg = document.getElementById('signImg');
+const mobileNumb = document.getElementById('mobileNumb');
 let completed = 0;
+
+if(localStorage.getItem('fName') != null){
+    let dynBtn = document.getElementById('dynBtn');
+    dynBtn.innerHTML = "Dashboard";
+    dynBtn.href = "myprofile.html";
+}
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDoc, setDoc, onSnapshot, doc, deleteDoc } 
+from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+const firebaseConfig = {
+    apiKey: "AIzaSyDR5OVjVSEP8wTL0bdlYu28f_dT6P7G1rU",
+    authDomain: "quizzle-25.firebaseapp.com",
+    projectId: "quizzle-25",
+    storageBucket: "quizzle-25.firebasestorage.app",
+    messagingSenderId: "577580316328",
+    appId: "1:577580316328:web:24b5cb922ed86d7b58b49d",
+    measurementId: "G-BYCGEN8X5S"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+
+
 function updateButtonBackground() {
-    console.log("came")
     completed = 0;
     if (fullName.value.trim() !== "") completed += 1;
     if (userEmail.value.trim() !== "") completed += 1;
@@ -33,6 +58,7 @@ function updateButtonBackground() {
     }
     dynButton.style.setProperty('--fill-width', `${percent}%`);
 }
+window.updateButtonBackground = updateButtonBackground;
 
 fullName.addEventListener('blur', updateButtonBackground);
 userEmail.addEventListener('blur', updateButtonBackground);
@@ -48,11 +74,19 @@ function containsNumber(str){
     }
     return false;
 }
+window.containsNumber = containsNumber;
 
 function containsSpecialCharacter(str) {
     const regex = /[^a-zA-Z0-9]/;
     return regex.test(str);
 }
+window.containsSpecialCharacter = containsSpecialCharacter;
+
+function generateRandomID(){
+    const rand = Math.floor(1000 + Math.random() * 9000);
+    return 'u'+rand;
+}
+
 function updatePass(){
     nxtButton.style.display = 'none';
     if(pass1.value.length < 6){
@@ -87,10 +121,10 @@ function updatePass(){
     }
     texter.style.display = 'block';
 }
+window.updatePass = updatePass;
 
 function updateNumber() {
     const percent = (numFld.value.length / 10) * 100;
-    console.log(numFld.value.length)
     if(numFld.value.length === 10){
         addBtn.style.cursor = 'pointer';
     }else{
@@ -104,6 +138,7 @@ function updateNumber() {
         addBtn.style.background = 'linear-gradient(to bottom right, orange,wheat)';
     }
 }
+window.updateNumber = updateNumber;
 numFld.addEventListener('input', updateNumber);
 numFld.addEventListener('blur', updateNumber);
 function proceedNow(){
@@ -114,6 +149,7 @@ function proceedNow(){
         signImg.classList.add('animate');
     }
 }
+window.proceedNow = proceedNow;
 pass1.addEventListener('input',updatePass);
 pass2.addEventListener('input',updatePass);
 pass1.addEventListener('blur',updatePass);
@@ -129,24 +165,63 @@ pForm.addEventListener('submit', function(event){
     event.preventDefault();
 });
 
-function complete(act){
+async function complete(act){
     if(act){
         conformator.style.display = 'flex';
         numberGetter.style.display = 'none';
         signImg.src = 'Assets/Images/tik.gif';
+        try{
+            let newid = '';
+            while(true){
+                newid = generateRandomID();
+                const docRef = doc(db,'users',newid);
+                const docSnap = await getDoc(docRef);
+                if(!docSnap.exists()){
+                    break;
+                }
+            }
+            await setDoc(doc(db, 'users',newid), {
+                fName: fullName.value,
+                email: userEmail.value,
+                password: pass1.value
+            });
+        }catch(error){
+            console.log("Error Caught: ",error)
+        }
     }else{
         if(numFld.value.length === 10 && !isNaN(numFld.value)){
             conformator.style.display = 'flex';
             numberGetter.style.display = 'none';
             signImg.src = 'Assets/Images/tik.gif';
+            let newid = '';
+            while(true){
+                newid = generateRandomID();
+                const docRef = doc(db,'users',newid);
+                const docSnap = await getDoc(docRef);
+                if(!docSnap.exists()){
+                    break;
+                }
+            }
+            try{
+                await setDoc(doc(db, 'users',newid), {
+                    fName: fullName.value,
+                    email: userEmail.value,
+                    password: pass1.value,
+                    phone: mobileNumb.value
+                });
+            }catch(error){
+                console.log("Error Caught: ",error)
+            }
         }else{
             alert("Invalid Number Inputted !");
         }
     }
 }
+window.complete = complete;
 
 function proceedCallMenu(){
     passwordSetter.style.display = 'none';
     numberGetter.style.display = 'flex';
     signImg.src = 'Assets/Images/phone.gif';
 }
+window.proceedCallMenu = proceedCallMenu;

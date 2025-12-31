@@ -22,7 +22,7 @@
             <a href="contact.html" class="head-link">Contact US</a>
         </div>
         <div class="login-container">
-            <a href="#">LogIN / SignUP</a>
+            <a id='dynBtn' href="login-page.html">LogIN / SignUP</a>
         </div>
     </header>
     <hr>
@@ -36,9 +36,16 @@
                 <p>Get ready to test your mind, sharpen your skills, and have fun while learning!<br>Quizzle is your smart quiz companion — built to make every question count. Whether you’re exploring, or revising what you already know, Quizzle turns learning into an interactive experience.</p>
                 <h2>Create &rarr; Play &rarr; Learn &rarr; Repeat</h2>
             </div>
-            <a class="explore-btn" href="#">Explore More</a>
+            <a class="explore-btn" href="instant-quizes.html">Try Instant Quizes</a>
         </div>
     </div>
     <hr>
+    <script>
+        if(localStorage.getItem('fName') != null){
+            let dynBtn = document.getElementById('dynBtn');
+            dynBtn.innerHTML = "Dashboard";
+            dynBtn.href = "myprofile.html";
+        }
+    </script>
 </body>
 </html>
