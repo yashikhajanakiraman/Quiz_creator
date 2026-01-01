@@ -120,6 +120,13 @@ function createQuiz() {
         alert("Enter the Quiz Name !");
         return;
     }
+    if(Number(timeDel.value) <= 5){
+        alert("Your Time Should at least be 5 Seconds");
+        return;
+    }else if(Number(timeDel.value) > 60){
+        alert("Time Delay cannot last more than a Minute (60 seconds) !");
+        return;
+    }
     first.style.display = 'none';
     questionsContainer.style.removeProperty('display');
 
