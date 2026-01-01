@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play A Quiz</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="icon" href="Assets/Images/quizzle-logo-2-bgless.png">
+    <link rel="stylesheet" href="play-quiz.css">
+</head>
+<body>
+    <div class="gradient-sphere circle-1"></div>
+    <div class="gradient-sphere circle-2"></div>
+    <header>
+        <div class="logo-container">
+            <a href="index.html"><img class="h-logo" src="Assets/Images/quizzle-logo-2-bgless.png" alt="Logo"></a>
+            <span>Quizzle</span>
+        </div>
+        <div class="tab-container">
+            <a href="#" class="head-link">Home</a>
+            <a href="about-us.html" class="head-link">About US</a>
+            <a href="contact.html" class="head-link">Contact US</a>
+        </div>
+        <div class="login-container">
+            <a id='dynBtn' href="login-page.html">LogIN / SignUP</a>
+        </div>
+    </header>
+    <hr>
+    <div class="top-container">
+        <div class="quiz-comb">
+            <img id="searchImg" src="Assets/Images/search.gif" alt="">
+            <div class="quiz-code-card">
+                <h2>Enter Quiz Code</h2>
+                <p class="sub-text">Enter the 4-character quiz code to start searching</p>
+
+                <div class="code-inputs">
+                    <input type="text" maxlength="1" class="code-box">
+                    <input type="text" maxlength="1" class="code-box">
+                    <input type="text" maxlength="1" class="code-box">
+                    <input type="text" maxlength="1" class="code-box">
+                </div>
+
+                <button id="search-btn" onclick="search()" class="verify-btn">Search Quiz</button>
+            </div>
+        </div>
+        <div class="response">
+            <div class="inner-cont">
+                <h1>Play A Quiz</h1>
+                <p style="animation-name: leftAppear;" class="msg">You can find and play quizzes using a 4-digit alphanumeric quiz code. Simply enter the code to quickly locate the quiz you want to play.</p>
+                <p style="animation-name: rightAppear;" class="msg">Private quizzes are visible only to their creators and can be played exclusively by them, while public quizzes can be played by anyone who has the quiz code.</p>
+                <p class="msg" style="color: wheat; animation-name: leftAppear;"> Enter your private quiz code or any public quiz code below to begin searching and start playing instantly.</p>
+                <h1 style="display: none; margin-top: 5rem;" class="ares">Quiz Title: <span>Title</span></h1>
+                <h1 style="display: none;" class="ares">No. of Questions: <span>5</span></h1>
+                <h1 style="display: none;" class="ares">Quiz Mode: <span>Public</span></h1>
+                <div id="attempt" onclick="startQuiz()" class="verify-btn" style="display: none; width: fit-content; margin-top: 3rem;">Attempt quiz</div>
+            </div>
+        </div>
+    </div>
+    <div id="Quizzer" class="quizzer" style="display: none;">
+        <div class="time-ques">
+            <div id="timer">0</div>
+        </div>
+        <div class="quest-ans">
+            <div id="qno">1</div>
+            <div id="question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem magni necessitatibus at a quos quam quibusdam accusantium odit nihil mollitia corporis itaque, architecto recusandae? Reprehenderit quis fugiat dolor tempora et.</div>
+        </div>
+        <div class="options-cont">
+            <div onclick="clicked(event)" class="optio" id="A">balh</div>
+            <div onclick="clicked(event)" class="optio" id="B">balh</div>
+            <div onclick="clicked(event)" class="optio" id="C">balh</div>
+            <div onclick="clicked(event)" class="optio" id="D">balh</div>
+        </div>
+        <div id="hint">Hint</div>
+    </div>
+    <div id="resulter" class="resulter" style="display: none;">
+        <h1>Quiz Results</h1>
+        <div id="scored">10/10</div>
+        <div class="com-qno">
+            <div id="qn">Questions Given</div>
+            <div id="gnQs">10</div>
+            <div id="qn">Correct Answers</div>
+            <div id="correctNo">10</div>
+            <div id="qn">Wrong Answers</div>
+            <div id="wrongNo">0</div>
+            <div id="qn">Ignored Questions</div>
+            <div id="ignored">0</div>
+        </div>
+        <div id="viewBtn" onclick="displaySolution()">View Solutions</div>
+    </div>
+    <div id="ansCont" style="display: none;">
+        <h1>Quiz Solutions</h1>
+        <div id="QComb">
+            <div id="Qnumber">1</div>
+            <div id="Aquestion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, deleniti repellendus? Voluptate, sed? Blanditiis illum iure distinctio provident aliquam esse?</div>
+        </div>
+        <div id="Aanswer">
+            <div id="AA">opt</div>
+            <div id="AB">opt</div>
+            <div id="AC">opt</div>
+            <div id="AD">opt</div>
+        </div>
+    </div>
+    
+    <script src="general.js"></script>
+    <script type="module" src="play-quiz.js"></script>
+</body>
+</html>
