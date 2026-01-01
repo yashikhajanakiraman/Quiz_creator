@@ -27,7 +27,6 @@ async function logIn() {
         return;
     }
 
-    // 👇 directly access the only document
     const docSnap = snapshot.docs[0];
     const data = docSnap.data();
 
@@ -38,6 +37,7 @@ async function logIn() {
 
     localStorage.setItem("userId", docSnap.id);
     localStorage.setItem("email", data.email);
+    window.location.href = 'myprofile.html';
 
 }
 

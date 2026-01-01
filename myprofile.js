@@ -1,0 +1,4 @@
+if(localStorage.getItem('userId') === null){
+    alert("Please Login !");
+    window.location.href = "login-page.html";
+}

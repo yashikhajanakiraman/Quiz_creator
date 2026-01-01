@@ -70,7 +70,7 @@ async function search(){
         alert("Incomplete Quiz Code Given");
         return;
     }
-    let quizRef = doc(db,'quizes',qcode);
+    let quizRef = doc(db,'quizzes',qcode);
     let quizData = await getDoc(quizRef);
     if(!quizData.exists()){
         alert("Quiz Code Not Found !");

@@ -317,7 +317,7 @@ async function saveQuiz() {
         let saving = document.getElementById('saving');
         saving.style.removeProperty('display');
 
-        await setDoc(doc(db, "quizes", qzid), {
+        await setDoc(doc(db, "quizzes", qzid), {
             createdBy: localStorage.getItem("userId"),
             quizName: quizName.value,
             mode: seletedMode,
@@ -358,7 +358,7 @@ function generateQuizCode() {
 }
 
 async function isQuizIdExists(qzid) {
-    const quizRef = doc(db, "quizes", qzid);
+    const quizRef = doc(db, "quizzes", qzid);
     const quizSnap = await getDoc(quizRef);
 
     return quizSnap.exists(); 
