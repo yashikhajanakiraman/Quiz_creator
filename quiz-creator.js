@@ -3,6 +3,7 @@ let questionsContainer = document.getElementsByClassName('questions')[0];
 let topContainer = document.getElementsByClassName('top-container')[0];
 let quizName = document.getElementById('quizName');
 let first = document.getElementById('first');
+let timeDel = document.getElementById('timeDel');
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getFirestore, query, where, collection, addDoc, getDoc, getDocs, setDoc, onSnapshot, doc, deleteDoc } 
@@ -325,11 +326,12 @@ async function saveQuiz() {
             correctAnswers: correctAnswersArr,
             hints: hintsArr, 
             totalQuestions: questionsArr.length,
-            createdAt: date
+            createdAt: date,
+            timeDelay: Number(timeDel.value)
         });
 
         let h1 = saving.getElementsByTagName('h1')[0];
-        h1.innerHTML = "Your Quiz Saved Successfully !";
+        h1.innerHTML = "Your Quiz Saved Successfully ! <br> Your Quiz Code is: <span style='color: coaral'>" + qzid + "</span>";
 
         let uButton = document.createElement('a');
         uButton.className = "createBtn";
