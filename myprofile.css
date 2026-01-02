@@ -143,6 +143,7 @@ nav a:hover {
   margin-top: 10px;
   color: #fff;
   border-radius: 25px;
+  font-size: 1.3rem;
   cursor: pointer;
   box-shadow: 0 0 10px #00b3ff;
   transition: 0.3s;
@@ -236,7 +237,11 @@ nav a:hover {
 
 .actions {
   text-align: center;
-  margin: 50px 0;
+  margin: 1rem auto;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+  width: 68dvw;
 }
 
 .play-btn, .leaderboard-btn {
@@ -252,9 +257,14 @@ nav a:hover {
 .play-btn {
   background: #ff00cc;
   box-shadow: 0 0 15px #ff00cc;
+  transition: all 1s;
 }
 
 .leaderboard-btn {
   background: #00b3ff;
+  box-shadow: 0 0 15px #00b3ff;
+}
+.play-btn:hover{
+  background-color: #00b3ff;
   box-shadow: 0 0 15px #00b3ff;
 }
