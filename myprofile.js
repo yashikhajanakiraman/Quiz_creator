@@ -27,7 +27,6 @@ const db = getFirestore(app);
 let userRef = doc(db,'users',localStorage.getItem('userId'));
 let userData = await getDoc(userRef);
 let ud = userData.data();
-console.log(ud)
 
 document.getElementById('username').innerHTML = "Welcome, " + ud.fName;
 
@@ -37,7 +36,6 @@ async function getQuizDetails(){
     try{
         const snapshot = await getDocs(q);
         if(snapshot.empty){
-            console.log("No Quizzes created by the user");
             return [];
         }
         const quizzes = [];
@@ -59,6 +57,7 @@ if(quizDetails){
 }
 
 function displayQuizDetails(){
+    document.getElementById('notFound').remove();
     let tBody = document.getElementById('tBody');
     quizDetails.forEach((qz) => {
         let tr = document.createElement('tr');

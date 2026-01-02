@@ -268,3 +268,8 @@ nav a:hover {
   background-color: #00b3ff;
   box-shadow: 0 0 15px #00b3ff;
 }
+
+h3{
+  text-align: center;
+  letter-spacing: 2px;
+}
