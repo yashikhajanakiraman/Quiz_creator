@@ -360,3 +360,8 @@ span{
     width: 35dvw;
     justify-content: space-around;
 }
+.explore-btn:hover{
+    color: purple;
+    background: pink;
+    box-shadow: 1px 1px 20px violet;
+}

@@ -1,7 +1,7 @@
 body{
     background: linear-gradient(to bottom right, #031149,#222);
     min-height: 100dvh;
-    min-width: 100dvw;
+    min-width: 101dvw;
     overflow-x: hidden;
 }
 .cont{
@@ -252,4 +252,62 @@ h1{
     place-items: center;
     align-self: flex-start;
     margin-top: 2rem;
+}
+.combi{
+    display: flex;
+    width: 35dvw;
+    justify-content: space-around;
+}
+.explore-btn{
+    margin: 2rem;
+    margin-top: 3rem;
+    padding: .8rem;
+    box-shadow: 1px 1px 50px purple;
+    font-size: 1.5rem;
+    background-color: purple;
+    color: pink;
+    border-radius: 1.1rem;
+    transition: both 1s;
+    animation-name: btnAppear;
+    animation-duration: 1.8s;
+    animation-direction: alternate;
+    animation-delay: 1s;
+    transition: all 1s;
+    animation-fill-mode: forwards;
+    border: .1px solid pink;
+    cursor: pointer;
+}
+.new-comb{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+i{
+    border: 2px solid aquamarine;
+    padding: .5rem;
+    border-radius: 50%;
+    color: aqua;
+    background: #031149;
+    font-size: 2rem;
+}
+#customTopic{
+    width: 25dvw;
+    padding: .8rem;
+    border-radius: 2rem;
+    background: #031149;
+    border: 2px solid aquamarine;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    font-size: 1.1rem;
+    color: wheat;
+}
+#customTopic::placeholder{
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    font-size: 1.1rem;
+}
+.explore-btn:hover{
+    color: purple;
+    background: pink;
+    box-shadow: 1px 1px 20px violet;
 }
