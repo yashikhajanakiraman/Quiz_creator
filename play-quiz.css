@@ -336,3 +336,27 @@ span{
     background-color: red !important;
     color: orange !important;
 }
+.explore-btn{
+    margin: 2rem;
+    margin-top: 3rem;
+    padding: .8rem;
+    box-shadow: 1px 1px 50px purple;
+    font-size: 1.5rem;
+    background-color: purple;
+    color: pink;
+    border-radius: 1.1rem;
+    transition: both 1s;
+    animation-name: btnAppear;
+    animation-duration: 1.8s;
+    animation-direction: alternate;
+    animation-delay: 1s;
+    transition: all 1s;
+    animation-fill-mode: forwards;
+    border: .1px solid pink;
+    cursor: pointer;
+}
+.combi{
+    display: flex;
+    width: 35dvw;
+    justify-content: space-around;
+}

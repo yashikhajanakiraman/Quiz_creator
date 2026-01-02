@@ -42,3 +42,15 @@ async function logIn() {
 }
 
 window.logIn = logIn;
+
+document.getElementById('userEmail').addEventListener('keydown',(event) => {
+    if(event.key === 'Enter'){
+        document.getElementById('userPassword').focus();
+    }
+})
+
+document.getElementById('userPassword').addEventListener('keydown',(event) => {
+    if(event.key === "Enter"){
+        logIn();
+    }
+})

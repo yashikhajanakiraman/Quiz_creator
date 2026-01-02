@@ -57,6 +57,15 @@ function clicked(event){
 }
 window.clicked = clicked;
 
+let inps = document.querySelectorAll('.code-box');
+inps.forEach(inp => {
+    inp.addEventListener('keydown', (event) => {
+        if(event.key === "Enter"){
+            search();
+        }
+    })
+})
+
 async function search(){
     let searchBtn = document.getElementById('search-btn');
     searchBtn.innerHTML = "Searching..."
@@ -65,7 +74,6 @@ async function search(){
     inps.forEach(inp => {
         qcode += inp.value;
     })
-    console.log(qcode);
     if(qcode.length != 4){
         alert("Incomplete Quiz Code Given");
         return;
@@ -74,6 +82,7 @@ async function search(){
     let quizData = await getDoc(quizRef);
     if(!quizData.exists()){
         alert("Quiz Code Not Found !");
+        searchBtn.innerHTML = "Search Quiz";
         return;
     }
     let qd = quizData.data();
@@ -99,6 +108,7 @@ async function search(){
 window.search = search;
 
 function showResponse(){
+    document.getElementById('playH1').innerHTML = "Quiz Found"
     let msgs = document.querySelectorAll('.msg');
     msgs.forEach(msg => {
         msg.style.display = 'none';
@@ -130,8 +140,6 @@ function nextQuestion() {
 
     if (currentQuestion >= gnQno) {
         clearInterval(timerInterval);
-        console.log("Quiz finished");
-        console.log("User answers:", answers);
         fetchResults();
         return; 
     }
@@ -334,6 +342,18 @@ function displaySolution() {
             Qnumber.style.color = 'red';
         }
     }
+    let expBtn = document.createElement('div');
+    expBtn.className = "explore-btn";
+    expBtn.innerHTML = "Exit";
+    expBtn.onclick = () => {
+        window.location.href = 'play-quiz.html';
+    }
+    ansCont.appendChild(expBtn);
 }
 
 window.displaySolution = displaySolution;
+
+function redirect(){
+    window.location.href = 'play-quiz.html';
+}
+window.redirect = redirect;

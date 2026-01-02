@@ -45,7 +45,7 @@
         </div>
         <div class="response">
             <div class="inner-cont">
-                <h1>Play A Quiz</h1>
+                <h1 id="playH1">Play A Quiz</h1>
                 <p style="animation-name: leftAppear;" class="msg">You can find and play quizzes using a 4-digit alphanumeric quiz code. Simply enter the code to quickly locate the quiz you want to play.</p>
                 <p style="animation-name: rightAppear;" class="msg">Private quizzes are visible only to their creators and can be played exclusively by them, while public quizzes can be played by anyone who has the quiz code.</p>
                 <p class="msg" style="color: wheat; animation-name: leftAppear;"> Enter your private quiz code or any public quiz code below to begin searching and start playing instantly.</p>
@@ -85,7 +85,10 @@
             <div id="qn">Ignored Questions</div>
             <div id="ignored">0</div>
         </div>
-        <div id="viewBtn" onclick="displaySolution()">View Solutions</div>
+        <div class="combi" style="display: flex;">
+            <div id="viewBtn" onclick="displaySolution()">View Solutions</div>
+            <div id="viewBtn" onclick="redirect()">Exit</div>
+        </div>
     </div>
     <div id="ansCont" style="display: none;">
         <h1>Quiz Solutions</h1>
