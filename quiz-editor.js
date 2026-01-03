@@ -46,7 +46,7 @@ async function getQuizDetails(){
 }
 let quizDetails = await getQuizDetails();
 
-if(quizDetails){
+if(quizDetails.length > 0){
    displayQuizDetails(); 
 }
 

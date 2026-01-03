@@ -126,7 +126,6 @@ nav a:hover {
   align-items: center;  
   justify-content: center;
   text-align: center;
-  margin-top: 50px;
 }
 
 #username {
@@ -238,11 +237,14 @@ nav a:hover {
 
 .actions {
   text-align: center;
-  margin: 1rem auto;
-  margin-top: 2rem;
-  display: flex;
+  margin: .6rem auto;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
   justify-content: space-around;
-  width: 80dvw;
+  width: 60dvw;
+  margin-bottom: 0;
 }
 
 .play-btn, .leaderboard-btn {

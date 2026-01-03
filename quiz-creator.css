@@ -61,7 +61,7 @@ h1{
     letter-spacing: 2px;
     padding: .8rem;
 }
-p{
+p, .del{
     text-align: center;
     color: coral;
     word-spacing: 2px;

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Your Quizzes</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="icon" href="Assets/Images/quizzle-logo-2-bgless.png">  
+    <link rel="stylesheet" href="quiz-creator.css">
+    <link rel="stylesheet" href="quiz-editor.css">
+    <script src="https://kit.fontawesome.com/dc4390d531.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="gradient-sphere circle-1"></div>
+    <div class="gradient-sphere circle-2"></div>
+    <header>
+        <div class="logo-container">
+            <a href="index.html"><img class="h-logo" src="Assets/Images/quizzle-logo-2-bgless.png" alt="Logo"></a>
+            <span>Quizzle</span>
+        </div>
+        <div class="tab-container">
+            <a href="index.html" class="head-link">Home</a>
+            <a href="about-us.html" class="head-link">About US</a>
+            <a href="contact.html" class="head-link">Contact US</a>
+        </div>
+        <div class="login-container">
+            <a id='dynBtn' href="login-page.html">LogIN / SignUP</a>
+        </div>
+    </header>
+    <hr>
+    <div class="top-container">
+        <div id="first">
+               <img class="stImg" style="border-radius: 37%;" src="Assets/Images/edit-quiz.gif" alt="">
+               <div class="start" style="margin-top: 0;">
+                    <h1>Delete Your Quizzes</h1>
+                    <p>Delete Quizzes that you own over here...</p>
+                    <h2 style="color: red;" class="del"><span style="color: orange;">Remember: </span>This Action can Never be Undone !!</h2>
+                    <div class="combined">
+                        <i class="fa-brands fa-airbnb"></i>
+                        <input id="quizId" type="text" placeholder="Quiz ID for Deletion...">
+                    </div>
+                    <div style="margin: .4rem; color: red;" id="delBtn" class="createBtn" onclick="startDelete()">Delete</div>
+                    <table id="fetched">
+                        <tr style="animation: none;">
+                            <th>Quiz ID</th>
+                            <th>Quiz Name</th>
+                            <th>Quiz Mode</th>
+                            <th>Total Questions</th>
+                        </tr>
+                    </table>
+                    <h4 id="notFound" style="letter-spacing: 1.5px; color: aliceblue;">No Quizzes Belong to You</h4>
+               </div>
+        </div>
+        <div class="questions" style="display: none;">
+            <img src="Assets/Images/add.gif" id="saveImg" alt="" class="stImg">
+            <div class="first" id="saving" style="display: none;">
+                <h1>Updating Your Quiz !!<br> Please Wait...</h1>
+            </div>
+        </div>
+    </div>
+    <script src="general.js"></script>
+    <script type="module" src="quiz-deleter.js"></script>
+</body>
+</html>

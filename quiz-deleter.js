@@ -1,13 +1,3 @@
-if(localStorage.getItem('userId') === null){
-    alert("Please Login !");
-    window.location.href = "login-page.html";
-}
-function logOut(){
-    localStorage.clear();
-    window.location.href = 'index.html';
-}
-window.logOut = logOut;
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getFirestore, query, where, collection, addDoc, getDoc, getDocs, setDoc, updateDoc, onSnapshot, doc, deleteDoc } 
 from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
@@ -27,8 +17,6 @@ const db = getFirestore(app);
 let userRef = doc(db,'users',localStorage.getItem('userId'));
 let userData = await getDoc(userRef);
 let ud = userData.data();
-
-document.getElementById('username').innerHTML = "Welcome, " + ud.fName;
 
 async function getQuizDetails(){
     let qzCollection = collection(db,'quizzes');
@@ -58,7 +46,7 @@ if(quizDetails.length > 0){
 
 function displayQuizDetails(){
     document.getElementById('notFound').remove();
-    let tBody = document.getElementById('tBody');
+    let tBody = document.getElementById('fetched');
     quizDetails.forEach((qz) => {
         let tr = document.createElement('tr');
         let qId = document.createElement('td');
@@ -76,3 +64,39 @@ function displayQuizDetails(){
         tBody.appendChild(tr);
     })
 }
+let gnQuizId;
+let quizData;
+const qidInput = document.getElementById('quizId');
+
+qidInput.addEventListener('keydown', (event) =>{
+    if(event.key === "Enter"){
+        startDelete();
+    }
+})
+
+async function startDelete(){
+    
+
+    quizDetails.forEach(qz => {
+        if(qz.id === qidInput.value){
+            quizData = qz;
+        }
+    });
+
+    if(!quizData){
+        alert("Wrong Quiz Id Entered !");
+        return;
+    }
+    gnQuizId = qidInput.value;
+    document.getElementById("delBtn").innerHTML = "Deleting...";
+    const respo = confirm("Are you sure to Delete the Quiz ?");
+    if(respo){
+        await deleteDoc(doc(db,'quizzes',gnQuizId));
+        alert(gnQuizId + " Deleted Successfully !!");
+        window.location.href = 'myprofile.html';
+    }else{
+        alert("Quiz Deletion Aborted !!");
+        window.location.href = 'myprofile.html';
+    }
+}
+window.startDelete = startDelete;
