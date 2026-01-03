@@ -1,3 +1,5 @@
+import CONFIG from './config.js';
+const API_KEY = CONFIG.GEMINI_KEY;
 let selection = document.getElementById("selection");
 let topic = '';
 let difficulty = '';
@@ -20,7 +22,6 @@ let stBtn = null;
 let qno = 0
 let timeCount = 0;
 async function startQuiz() {
-    const API_KEY = "AIzaSyDfsURTItmNnRPI8sqgJOLig_5FmasWrRU";
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
     try{
         let h1 = document.createElement('h1');
@@ -109,6 +110,10 @@ JSON format:
         let headerLinks = document.querySelectorAll('.head-link');
         headerLinks.forEach(elem => {
             elem.innerHTML = '';
+            elem.style.cursor = "default";
+            elem.addEventListener('click',function(event){
+                event.preventDefault();
+            })
         })
         headerLinks[1].innerHTML = topic + ' Quiz ' + difficulty + ' Mode'; 
         currentQuestion = 0;
@@ -118,6 +123,7 @@ JSON format:
         console.log("Error: ",error)
     }
 }
+window.startQuiz = startQuiz;
 
 function showQuestion(){
     let elems = document.querySelectorAll('.optio');
@@ -138,6 +144,7 @@ function showQuestion(){
     };
     startTimer(timeCount);
 }
+window.showQuestion = showQuestion;
 
 function nextQuestion(){
     currentQuestion++;
@@ -148,6 +155,7 @@ function nextQuestion(){
         fetchResults();
     }
 }
+window.nextQuestion = nextQuestion;
 function select(event){
     topic = event.target.innerHTML;
     let para = document.getElementById('para');
@@ -172,7 +180,10 @@ function select(event){
     optCont.appendChild(easy);
     optCont.appendChild(moderate);
     optCont.appendChild(hard);
+    document.getElementsByClassName('new-comb')[0].remove();
+    document.getElementById('srchTpc').remove();
 }
+window.select = select;
 
 function setDifficulty(event){
     optCont.innerHTML = '';
@@ -187,6 +198,7 @@ function setDifficulty(event){
     stBtn.onclick = startQuiz;
     optCont.appendChild(stBtn);
 }
+window.setDifficulty = setDifficulty;
 
 function startTimer(ment){
     let timer = document.getElementById('timer');
@@ -207,6 +219,7 @@ function startTimer(ment){
         }
     },1000)
 }
+window.startTimer = startTimer;
 
 function clicked(event){
     let elems = document.querySelectorAll('.optio');
@@ -218,10 +231,12 @@ function clicked(event){
     event.target.style.color = 'lightblue';
     answers[currentQuestion] = event.target.innerHTML;
 }
+window.clicked = clicked;
 function endQuiz(){
     let quizzer = document.getElementsByClassName('quizzer')[0];
     quizzer.innerHTML = '';
 }
+window.endQuiz = endQuiz;
 function fetchResults(){
     let score = 0;
     let ign = 0;
@@ -245,6 +260,7 @@ function fetchResults(){
     let scored = document.getElementById('scored');
     scored.innerHTML = score + '/' + qno;
 }
+window.fetchResults = fetchResults;
 function displaySolution(){
     resuter.style.display = 'none';
     let ansCont = document.getElementById('ansCont');
@@ -338,4 +354,77 @@ function displaySolution(){
         ansCont.appendChild(QComb);
         ansCont.appendChild(Aanswer);
     }
+    let expBtn = document.createElement('div');
+        expBtn.className = "explore-btn";
+        expBtn.innerHTML = "Exit";
+        expBtn.onclick = () => {
+            window.location.href = 'instant-quizes.html';
+        }
+        ansCont.appendChild(expBtn);
 }
+window.displaySolution = displaySolution;
+
+function redirect(){
+    window.location.href = 'instant-quizes.html';
+}
+window.redirect = redirect;
+
+async function searchTopic(event){
+    let searchBox = document.getElementById('customTopic');
+    if(searchBox.value.trim() === ''){
+        alert("Enter a Valid Prompt to Search Topic !");
+        return;
+    }
+    event.target.innerHTML = "Searching...";
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
+    let prompt = `You are a topic validator.
+Given a user input, decide whether it represents a valid quiz topic that can be used to generate educational quiz questions.
+Rules:
+- If the input refers to a valid learning topic (programming language, technology, subject, skill, or academic area), extract and return a clean, concise topic name.
+- Normalize the topic to its commonly accepted short form (example: "I need to learn c++" → "C++").
+- If the input is meaningless, random, offensive, or not suitable as a quiz topic, mark it as invalid.
+- Do NOT explain your reasoning.
+- Return ONLY raw JSON.
+- Do NOT use markdown or extra text.
+JSON format:
+{
+  "valid": true or false,
+  "topic": "Normalized topic name or null"
+}
+User input:"${searchBox.value}"`;
+    let respo = await fetch(API_URL, {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            contents: [{
+                parts: [{text: prompt}],
+            }]
+        })
+    });
+
+    const data = await respo.json();
+    if(!data.candidates || !data.candidates.length){
+        throw new Error("No Response From Gemini")
+    }
+
+    const message = data.candidates[0].content.parts[0].text;
+    let quizTopic = JSON.parse(message);
+    if(!quizTopic.valid){
+        alert("No Topic Found !");
+        event.target.innerHTML = "Search";
+        return;
+    }
+    document.getElementById('para').innerHTML = "We found New Topic based on Your Search ! <br> Here are them..."
+    let optCont = document.getElementsByClassName('opt-cont')[0]
+    optCont.innerHTML = "";
+    let newTopic = document.createElement('div');
+    newTopic.id = quizTopic.topic;
+    newTopic.innerHTML = quizTopic.topic;
+    newTopic.className = 'opt';
+    newTopic.onclick = select;
+    newTopic.style.gridColumn = "span 2";
+    optCont.appendChild(newTopic);
+    event.target.innerHTML = "Search Again";
+    searchBox.value = "";
+}
+window.searchTopic = searchTopic;

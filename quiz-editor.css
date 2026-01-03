@@ -1,0 +1,31 @@
+table{
+    width: 48dvw;
+    margin: .4rem;
+    border-collapse: collapse;
+}
+th{
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: orange;
+}
+td{
+    text-align: center;
+    letter-spacing: 1.5px;
+    color: aliceblue;
+}
+th, td{
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+tr{
+    animation-name: trAppear;
+    animation-duration: 1s;
+    text-align: center;
+    animation-fill-mode: forwards;
+}
+@keyframes trAppear {
+  from{
+    transform: translateY(50rem);
+  }
+}

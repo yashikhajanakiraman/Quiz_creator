@@ -16,7 +16,8 @@ body{
     justify-content: center;
     min-height: 100dvh;
     min-width: 100dvw;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 header{
@@ -106,14 +107,14 @@ hr{
 
 
 h1{
-    text-shadow: 0 0 4px orange;
+    text-shadow: 0 0 4px rgba(255, 166, 0, 0.911);
 }
 h3{
     text-shadow:  0 0 6px rgb(255, 166, 0);
 }
 
 .login-details{
-    background-color:#0b0f33;
+    background: #F59E0B;
     border: 1px solid white;
     border-radius: 16px;
     padding: 20px 30px;
@@ -129,22 +130,26 @@ h3{
 } 
 
 .login-details:hover{
-    box-shadow: 0 0 5px white;
+    box-shadow: 0 0 15px black;
 }
 
 .input-val{
     display: flex;
     align-items: center;
-    background-color:orange;
     border-radius: 12px;
-    padding: 16px 20px;
+    /*padding: 16px 20px;*/
     margin-bottom: 20px;
-    transition: border-color 0.4s;
+    transition: border-color 0.4s ease, border-color 0.4s ease;
+    justify-content: center;
+    background: #FFF9F0;
+    border: 2px solid transparent;
+    /*background: transparent;*/
+    padding: 1rem;
 }
 
 .input-val:focus-within{
-    border-color:pink;
-    box-shadow:0 0 10px rgba(255,255,255,0.8);
+    border-color: rgba(91, 45, 139, 0.6);
+    box-shadow: 0 0 0 3px rgba(91, 45, 139, 0.25);
 }
 
 .input-val input{
@@ -153,12 +158,10 @@ h3{
     flex:1;
     font-size: 16px;
     outline: none;
-    /* color: white; */
     color:black;
 }
 
 .input-val input::placeholder{
-    /* color: rgba(255,255,255,0.8); */
     color: black;
 }
 

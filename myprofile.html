@@ -3,94 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quizzle</title>
+  <title>Dashboard</title>
+  <link rel="icon" href="Assets/Images/quizzle-logo-2-bgless.png">
   <link rel="stylesheet" href="myprofile.css" />
 </head>
 <body>
   <header>
     <div class="logo-container">
-            <img class="h-logo" src="quizzle\images\quizzle-logo-2-bgless.png" alt="Logo">
+            <img class="h-logo" src="Assets/Images/quizzle-logo-2-bgless.png" alt="Logo">
             <span>Quizzle</span>
         </div>
         <div class="tab-container">
-            <a href="#" class="active head-link">Home</a>
-            <a href="about.html" class="head-link">About US</a>
+            <a href="index.html" class="head-link">Home</a>
+            <a href="about-us.html" class="head-link">About US</a>
             <a href="contact.html" class="head-link">Contact US</a>
-            <a href="myprofile.html" class=head-link>My Profile</a>
+            <a href="myprofile.html" class=" active head-link">My Profile</a>
         </div>
         <div class="login-container">
-            <a href="#">LogIN / SignUP</a>
+            <a onclick="logOut()" href="#">Log Out</a>
         </div>
   </header>
+  <hr>
 
   <section class="profile-header">
     <div class="profile">
       <h1 id="username">Username</h1>
-      <button class="edit-btn">Edit Profile</button>
+      <a href="edit-profile.html"><button class="edit-btn">Edit Profile</button></a>
     </div>
   </section>
-
-  <section class="stats">
-    <div class="stat-card">
-      <h2>Total Points</h2>
-      <p id="totalPoints"></p>
-    </div>
-    <div class="stat-card">
-      <h2>Quizzes Played</h2>
-      <p id="quizzesPlayed"></p>
-    </div>
-    <div class="stat-card">
-      <h2>Average Score</h2>
-      <p id="avgScore"></p>
-    </div>
-    <div class="stat-card">
-      <h2>Total Time</h2>
-      <p id="timePlayed"></p>
-    </div>
+   <section class="actions">
+    <a href="quiz-creator.html"><button class="play-btn">Create a New Quiz</button></a>
+    <a href="quiz-editor.html"><button class="play-btn">Edit Your Quiz</button></a>
+    <a href="quiz-deleter.html"><button class="play-btn">Delete Your Quiz</button></a>
+    <a href="play-quiz.html"><button class="play-btn">Play a Quiz</button></a>
+    <a style="grid-column: span 2;" href="instant-quizes.html"><button class="edit-btn">Play Instant Quizzes</button></a>
   </section>
-
-  <section class="progress">
-    <h2>Progress Level</h2>
-    <div class="progress-bar">
-      <div class="fill" style="width: 70%;"></div>
-    </div>
-  </section>
-
-  <section class="badges">
-    <h2>Achievements</h2>
-    <div class="badge-container">
-      <div class="badge">🏆 Top Scorer</div>
-      <div class="badge">⚡ Fast Thinker</div>
-      <div class="badge">🔥 Consistent Player</div>
-    </div>
-  </section>
-
   <section class="history">
-    <h2>Quiz History</h2>
+    <h2>Your Quizzes</h2>
     <table>
       <thead>
-        <tr>
-          <th>Quiz</th>
-          <th>Date</th>
-          <th>Time Taken</th>
-          <th>Points</th>
+        <tr style="animation: none;">
+          <th>Quiz ID</th>
+          <th>Quiz Name</th>
+          <th>Mode</th>
+          <th>Total Questions</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+      <tbody id="tBody">
       </tbody>
     </table>
+    <h3 id="notFound">No Quizzes Created</h3>
   </section>
-
-  <section class="actions">
-    <button class="play-btn">Play New Quiz</button>
-    <button class="leaderboard-btn">View Leaderboard</button>
-  </section>
-  <script type="module" src="my-profile.js"></script>
+  <script type="module" src="myprofile.js"></script>
 </body>
 </html>

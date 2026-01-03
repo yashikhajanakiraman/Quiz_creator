@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Quiz</title>
+    <title>Edit Your Quizzes</title>
     <link rel="stylesheet" href="header.css">
+    <link rel="icon" href="Assets/Images/quizzle-logo-2-bgless.png">  
     <link rel="stylesheet" href="quiz-creator.css">
-    <link rel="icon" href="Assets/Images/quizzle-logo-2-bgless.png">
+    <link rel="stylesheet" href="quiz-editor.css">
     <script src="https://kit.fontawesome.com/dc4390d531.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -23,40 +24,40 @@
             <a href="contact.html" class="head-link">Contact US</a>
         </div>
         <div class="login-container">
-            <a id="dynBtn" href="login-page.html">LogIN / SignUP</a>
+            <a id='dynBtn' href="login-page.html">LogIN / SignUP</a>
         </div>
     </header>
     <hr>
     <div class="top-container">
         <div id="first">
-               <img class="stImg" src="Assets/Images/newQuiz.gif" alt="">
+               <img class="stImg" style="border-radius: 37%;" src="Assets/Images/edit-quiz.gif" alt="">
                <div class="start" style="margin-top: 0;">
-                    <h1>Create Your Quizzes</h1>
-                    <p>Create Your own Quizzes Here. Each quiz must contain at least 5 questions, and you can extend it beyond. Once created, your quiz can be kept private or shared with others to play.</p>
+                    <h1>Edit Your Quizzes</h1>
+                    <p>Edit Quizzes that you own over here... <br> Either it can be Public or Private but You should own it to edit it !</p>
                     <div class="combined">
                         <i class="fa-brands fa-airbnb"></i>
-                        <input id="quizName" type="text" placeholder="Your Quiz Name Goes Here...">
+                        <input id="quizId" type="text" placeholder="Quiz ID for Edition...">
                     </div>
-                    <div class="combined" style="margin-top: 0;">
-                        <i class="fa-regular fa-clock" style="transform: rotate(0deg);"></i>
-                        <input id="timeDel" type="text" placeholder="Time Delay Per Question...">
-                    </div>
-                    <div class="modeSelect">
-                        <div id="txt">Quiz Mode</div>
-                        <div onclick="modeSpecify(event)" class="mode Mactive" id="mdPublic">Public</div>
-                        <div onclick="modeSpecify(event)" class="mode" id="mdPrivate">Private</div>
-                    </div>
-                    <div class="createBtn" onclick="createQuiz()">Create</div>
+                    <div style="margin: .4rem;" class="createBtn" onclick="startEdit()">Start Editing</div>
+                    <table id="fetched">
+                        <tr style="animation: none;">
+                            <th>Quiz ID</th>
+                            <th>Quiz Name</th>
+                            <th>Quiz Mode</th>
+                            <th>Total Questions</th>
+                        </tr>
+                    </table>
+                    <h4 id="notFound" style="letter-spacing: 1.5px; color: aliceblue;">No Quizzes Belong to You</h4>
                </div>
         </div>
         <div class="questions" style="display: none;">
-            <img src="Assets/Images/add.gif" alt="" class="stImg">
+            <img src="Assets/Images/add.gif" id="saveImg" alt="" class="stImg">
             <div class="first" id="saving" style="display: none;">
-                <h1>Saving Your Quiz <br> Please Wait...</h1>
+                <h1>Updating Your Quiz !!<br> Please Wait...</h1>
             </div>
         </div>
     </div>
     <script src="general.js"></script>
-    <script type="module" src="quiz-creator.js"></script>
+    <script type="module" src="quiz-editor.js"></script>
 </body>
 </html>

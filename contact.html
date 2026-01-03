@@ -14,11 +14,11 @@
     <div class="gradient-sphere circle-2"></div>
     <header>
         <div class="logo-container">
-            <a href="home.html"><img class="h-logo" src="Assets/Images/quizzle-logo-2-bgless.png" alt="Logo"></a>
+            <a href="index.html"><img class="h-logo" src="Assets/Images/quizzle-logo-2-bgless.png" alt="Logo"></a>
             <span>Quizzle</span>
         </div>
         <div class="tab-container">
-            <a href="home.html" class="head-link">Home</a>
+            <a href="index.html" class="head-link">Home</a>
             <a href="about-us.html" class="head-link">About US</a>
             <a href="#" class="active head-link">Contact US</a>
         </div>
@@ -32,7 +32,7 @@
             <img src="Assets/Images/send-img-wbg.gif" alt="contact-us">
         </div>
         <div class="right">
-            <form onsubmit="return submitted()" class="content">
+            <form onsubmit="return submitted(event)" class="content">
                 <h1>Get In Touch</h1>
                 <div class="combined">
                     <i class="fa-solid fa-user"></i>
@@ -58,26 +58,56 @@
         <div class="submitted" style="display: none;">
             <h1>Form Submitted<br> Successfully !!</h1>
             <h2>You can expect a <br>Quicker Response from Us !!</h2>
-            <a href="home.html">Back Home</a>
+            <a href="index.html">Back Home</a>
         </div>
     </div>
     <hr>
-    <script>
-        function submitted(){
-            console.log("Called !!")
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getFirestore, query, where, collection, addDoc, getDoc, getDocs, setDoc, onSnapshot, doc, deleteDoc } 
+        from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyDR5OVjVSEP8wTL0bdlYu28f_dT6P7G1rU",
+            authDomain: "quizzle-25.firebaseapp.com",
+            projectId: "quizzle-25",
+            storageBucket: "quizzle-25.firebasestorage.app",
+            messagingSenderId: "577580316328",
+            appId: "1:577580316328:web:24b5cb922ed86d7b58b49d",
+            measurementId: "G-BYCGEN8X5S"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function submitted(event){
+            event.preventDefault();
+            if(document.getElementById('phone').value.length != 10){
+                alert("Mobile Number Should exactly be 10 Digits !!");
+                return;
+            }
             const right = document.querySelector('.right');
             const submted = document.querySelector('.submitted');
             const left = document.querySelector('.left');
             right.style.display = 'none';
             submted.style.removeProperty('display');
             left.innerHTML = '<img src="Assets/Images/mail-sent-wbg.gif" alt="contact-us">';
+            let coll = collection(db,'receivedMessages');
+            try{
+                await addDoc(coll,{
+                    fName: document.getElementById('firstName').value,
+                    email: document.getElementById('eMail').value,
+                    phone: document.getElementById('phone').value,
+                    message: document.getElementById('message').value
+                });
+            }catch(error){
+                console.log("Error Caught: ",error);
+            }
+            
             return false;
         }
-        if(localStorage.getItem('fName') != null){
-            let dynBtn = document.getElementById('dynBtn');
-            dynBtn.innerHTML = "Dashboard";
-            dynBtn.href = "myprofile.html";
-        }
+        window.submitted = submitted;
+
     </script>
+    <script src="general.js"></script>
 </body>
 </html>

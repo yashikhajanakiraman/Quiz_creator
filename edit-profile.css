@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    /* color: wheat; */
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background: linear-gradient(to bottom right, #031149,#222);
+    min-height: 100dvh;
+    min-width: 100dvw;
+    overflow-x: hidden;
+}
+h1{
+    color: aqua;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 2rem;
+}
+.top-container{
+    margin: 2rem auto;
+    padding: 2rem;
+    width: 50dvw;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(100px);
+    border-radius: 2rem;
+    box-shadow: 0 0 8px lightblue;
+    border: .5px solid #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0;
+}
+h1::after{
+    position: absolute;
+    content: '';
+    width: 5dvw;
+    height: .6dvh;
+    background: aquamarine;
+    top: 2.8rem;
+    right: 20rem;
+    border-radius: 1rem;
+}
+.combi{
+    display: flex;
+    padding: 1rem;
+    justify-content: space-around;
+}
+h2{
+    color: coral;
+    letter-spacing: 2px;
+}
+input{
+    width: 20dvw;
+    padding: .6rem;
+    border-radius: 2rem;
+    background: #031149;
+    border: 2px solid aquamarine;
+    outline: none;
+    color: wheat;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding-left: 1rem;
+}
+input::placeholder{
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+.explore-btn{
+    margin: 1rem auto;
+    cursor: pointer;
+    padding: .8rem;
+    box-shadow: 1px 1px 50px purple;
+    font-size: 1.1rem;
+    background-color: purple;
+    color: pink;
+    border-radius: 1.1rem;
+    transition: both 1s;
+    transition: all 1s;
+    animation-fill-mode: forwards;
+    border: .1px solid pink;
+    width: fit-content;
+}
+.explore-btn:hover{
+    color: purple;
+    background: pink;
+    box-shadow: 1px 1px 20px violet;
+}

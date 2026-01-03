@@ -65,7 +65,7 @@ body{
     align-items: center;
     justify-content: center;
 }
-.right .explore-btn{
+.explore-btn{
     margin: 2rem;
     margin-top: 3rem;
     padding: .8rem;
@@ -89,10 +89,14 @@ body{
         transform: rotate(0deg) scale(1);
     }
 }
-.right .explore-btn:hover{
+.explore-btn:hover{
     color: purple;
     background: pink;
     box-shadow: 1px 1px 20px violet;
+}
+.combi{
+    display: flex;
+
 }
 .right .content{
     padding: 2rem;

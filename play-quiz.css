@@ -1,94 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    /* color: wheat; */
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
 body{
     background: linear-gradient(to bottom right, #031149,#222);
     min-height: 100dvh;
-    min-width: 101dvw;
+    min-width: 100dvw;
     overflow-x: hidden;
 }
-.cont{
+
+.top-container{
+    display: grid;
+    grid-template-columns: 50dvw auto;
+    height: 83dvh;
+}
+.quiz-comb{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    place-items: center;
+}
+
+#searchImg{
+    width: 15dvw;
+    border-radius: 50%;
+    animation-name: contAppear;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.quiz-code-card {
+    padding: 30px 35px;
+    border-radius: 1rem;
+    width: 340px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(100px);
+    box-shadow: 0 0 8px lightblue;
+    border: .5px solid #222;
+    animation-name: contAppear;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes contAppear {
+    from{
+        transform: scale(0);
+    }
+}
+
+.quiz-code-card h2 {
+    margin-bottom: 8px;
+    color: aquamarine;
+    letter-spacing: 2px;
+}
+
+.sub-text {
+    font-size: 14px;
+    color: lightcoral;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.code-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.code-box {
+    background: #031149;
+    color: aliceblue;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    border: 2px solid aqua;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.code-box:focus {
+    border-color: purple;
+    box-shadow: 0 0 8px rgba(76, 124, 255, 0.3);
+}
+
+.verify-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #4c7cff;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.verify-btn:hover {
+    background: #3a67e0;
+}
+
+.response{
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 2rem;
-    margin: 2rem;
-    padding: 2.4rem;
-    margin-top: 3rem;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(100px);
-    border-radius: 2rem;
-    box-shadow: 0 0 8px lightblue;
-    border: .5px solid #222;
-    margin-right: 4rem;
-    margin-left: 3rem;
-    animation-name: appearCont;
-    animation-duration: 1.2s;
-    animation-fill-mode: forwards;
-    animation-direction: alternate;
 }
-@keyframes appearCont {
-    from{
-        transform: scale(0);
-        background-color: #031149;
-    }
+
+.inner-cont{
+    width: 43dvw;
+    min-height: 70dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 h1{
-    text-align: center;
     color: aqua;
+    text-align: center;
     letter-spacing: 2px;
-    margin-bottom: 2rem;
-}
-.cont p{
-    color: orange;
-    text-align: center;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-}
-.opt{
-    padding: .5rem;
-    background: #223;
-    border: 1px solid aquamarine;
-    margin: .7rem;
-    width: 6.2dvw;
-    cursor: pointer;
-    text-align: center;
-    border-radius: 2rem;
-    color: aquamarine;
-    transition: all 1.4s;
-    align-self: center;
-}
-.opt-cont{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 50dvw;
-    place-items: center;
-}
-.opt:hover{
-    border: none;
-    box-shadow: 0 0 150px aqua;
-}
-#quizGif{
-    width: 35dvw;
-    border-radius: 50%;
-    margin: 2rem;
-    margin-left: 3rem;
-    animation-name: imagApr;
+    margin: .5rem;
+    animation-name: rightAppear;
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
-    animation-direction: alternate;
 }
-@keyframes imagApr {
+@keyframes rightAppear {
     from{
-        transform: scale(0) rotate(90deg) translateX(500px);
+        transform: translateX(20rem);
     }
 }
-.top-container{
-    width: 100dvw;
-    height: 82dvh;
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
+.msg{
+    color: coral;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 1.3rem;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
 }
+@keyframes leftAppear {
+    from{
+        transform: translateX(-20rem);
+    }
+}
+
 .quizzer{
     display: flex;
     flex-direction: column;
@@ -115,7 +181,7 @@ h1{
     text-align: center;
     border-radius: 50%;
     font-weight: 800;
-    width: 2.4rem;
+    width: 3.4rem;
     font-size: 1.6rem;
 }
 #question{
@@ -132,7 +198,7 @@ h1{
     text-align: center;
     font-weight: 900;
     font-size: 1.8rem;
-    width: 2.4rem;
+    width: 3.4rem;
     margin-bottom: 1rem
 }
 .optio{
@@ -165,6 +231,14 @@ h1{
     cursor: pointer;
     letter-spacing: 2px;
 }
+.ares{
+    color: aquamarine;
+    font-size: 2.5rem;
+}
+span{
+    color: coral;
+}
+
 .resulter, #ansCont{
     width: 85dvw;
     border-radius: 2rem;
@@ -253,10 +327,14 @@ h1{
     align-self: flex-start;
     margin-top: 2rem;
 }
-.combi{
-    display: flex;
-    width: 35dvw;
-    justify-content: space-around;
+.correct {
+    background-color: lightgreen !important;
+    color: darkgreen !important;
+}
+
+.wrong {
+    background-color: red !important;
+    color: orange !important;
 }
 .explore-btn{
     margin: 2rem;
@@ -277,34 +355,10 @@ h1{
     border: .1px solid pink;
     cursor: pointer;
 }
-.new-comb{
+.combi{
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-i{
-    border: 2px solid aquamarine;
-    padding: .5rem;
-    border-radius: 50%;
-    color: aqua;
-    background: #031149;
-    font-size: 2rem;
-}
-#customTopic{
-    width: 25dvw;
-    padding: .8rem;
-    border-radius: 2rem;
-    background: #031149;
-    border: 2px solid aquamarine;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    font-size: 1.1rem;
-    color: wheat;
-}
-#customTopic::placeholder{
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    font-size: 1.1rem;
+    width: 35dvw;
+    justify-content: space-around;
 }
 .explore-btn:hover{
     color: purple;

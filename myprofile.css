@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, #0b0d2b, #3a0d45);
   color: #fff;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 header {
@@ -124,7 +126,6 @@ nav a:hover {
   align-items: center;  
   justify-content: center;
   text-align: center;
-  margin-top: 50px;
 }
 
 #username {
@@ -142,6 +143,7 @@ nav a:hover {
   margin-top: 10px;
   color: #fff;
   border-radius: 25px;
+  font-size: 1.3rem;
   cursor: pointer;
   box-shadow: 0 0 10px #00b3ff;
   transition: 0.3s;
@@ -230,12 +232,19 @@ nav a:hover {
 
 .history th {
   color: #f6c71b;
-  text-align: left;
+  text-align: center;
 }
 
 .actions {
   text-align: center;
-  margin: 50px 0;
+  margin: .6rem auto;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  justify-content: space-around;
+  width: 60dvw;
+  margin-bottom: 0;
 }
 
 .play-btn, .leaderboard-btn {
@@ -251,9 +260,30 @@ nav a:hover {
 .play-btn {
   background: #ff00cc;
   box-shadow: 0 0 15px #ff00cc;
+  transition: all 1s;
 }
 
 .leaderboard-btn {
   background: #00b3ff;
   box-shadow: 0 0 15px #00b3ff;
+}
+.play-btn:hover{
+  background-color: #00b3ff;
+  box-shadow: 0 0 15px #00b3ff;
+}
+
+h3{
+  text-align: center;
+  letter-spacing: 2px;
+}
+tr{
+  animation-name: trAppear;
+  animation-duration: 1s;
+  text-align: center;
+  animation-fill-mode: forwards;
+}
+@keyframes trAppear {
+  from{
+    transform: translateY(10rem);
+  }
 }

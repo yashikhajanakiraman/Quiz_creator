@@ -142,6 +142,10 @@ window.updateNumber = updateNumber;
 numFld.addEventListener('input', updateNumber);
 numFld.addEventListener('blur', updateNumber);
 function proceedNow(){
+    if(!userEmail.value.includes('@')){
+        alert("Email Should Contain @ with a proper Domain");
+        return;
+    }
     if(completed == 2){
         inputGetter.style.display = 'none';
         passwordSetter.style.display = 'flex';

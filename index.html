@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="header.css">
     <link rel="icon" href="Assets/Images/quizzle-logo-2-bgless.png">
     <title>Quizzle</title>
@@ -13,7 +13,7 @@
     <div class="gradient-sphere circle-2"></div>
     <header>
         <div class="logo-container">
-            <a href="home.html"><img class="h-logo" src="Assets/Images/quizzle-logo-2-bgless.png" alt="Logo"></a>
+            <a href="index.html"><img class="h-logo" src="Assets/Images/quizzle-logo-2-bgless.png" alt="Logo"></a>
             <span>Quizzle</span>
         </div>
         <div class="tab-container">
@@ -36,16 +36,13 @@
                 <p>Get ready to test your mind, sharpen your skills, and have fun while learning!<br>Quizzle is your smart quiz companion — built to make every question count. Whether you’re exploring, or revising what you already know, Quizzle turns learning into an interactive experience.</p>
                 <h2>Create &rarr; Play &rarr; Learn &rarr; Repeat</h2>
             </div>
-            <a class="explore-btn" href="instant-quizes.html">Try Instant Quizes</a>
+            <div class="combi">
+                <a class="explore-btn" href="instant-quizes.html">Try Instant Quizzes</a>
+                <a class="explore-btn" href="play-quiz.html">Play Public Quizzes</a>
+            </div>
         </div>
     </div>
     <hr>
-    <script>
-        if(localStorage.getItem('fName') != null){
-            let dynBtn = document.getElementById('dynBtn');
-            dynBtn.innerHTML = "Dashboard";
-            dynBtn.href = "myprofile.html";
-        }
-    </script>
+    <script src="general.js"></script>
 </body>
 </html>
