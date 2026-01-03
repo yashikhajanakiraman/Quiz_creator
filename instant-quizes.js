@@ -411,6 +411,7 @@ User input:"${searchBox.value}"`;
     let quizTopic = JSON.parse(message);
     if(!quizTopic.valid){
         alert("No Topic Found !");
+        event.target.innerHTML = "Search";
         return;
     }
     document.getElementById('para').innerHTML = "We found New Topic based on Your Search ! <br> Here are them..."

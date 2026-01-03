@@ -76,6 +76,7 @@ async function search(){
     })
     if(qcode.length != 4){
         alert("Incomplete Quiz Code Given");
+        searchBtn.innerHTML = "Search Quiz";
         return;
     }
     let quizRef = doc(db,'quizzes',qcode);
