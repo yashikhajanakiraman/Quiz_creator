@@ -28,7 +28,7 @@ function modeSpecify(event){
     if(event.target.innerHTML == "Public"){
         mdPublic.classList.add('Mactive');
         mdPrivate.classList.remove('Mactive');
-        seletecMode = "Public";
+        seletedMode = "Public";
     }else{
         mdPrivate.classList.add('Mactive');
         mdPublic.classList.remove('Mactive');
@@ -338,7 +338,7 @@ async function saveQuiz() {
         });
 
         let h1 = saving.getElementsByTagName('h1')[0];
-        h1.innerHTML = "Your Quiz Saved Successfully ! <br> Your Quiz Code is: <span style='color: coaral'>" + qzid + "</span>";
+        h1.innerHTML = "Your Quiz Saved Successfully ! <br> Your Quiz Code is: <span style='color: coral'>" + qzid + "</span>";
 
         let uButton = document.createElement('a');
         uButton.className = "createBtn";

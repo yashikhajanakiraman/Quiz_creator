@@ -5,6 +5,7 @@ body {
   background: linear-gradient(135deg, #0b0d2b, #3a0d45);
   color: #fff;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 header {
@@ -232,7 +233,7 @@ nav a:hover {
 
 .history th {
   color: #f6c71b;
-  text-align: left;
+  text-align: center;
 }
 
 .actions {
@@ -241,7 +242,7 @@ nav a:hover {
   margin-top: 2rem;
   display: flex;
   justify-content: space-around;
-  width: 68dvw;
+  width: 80dvw;
 }
 
 .play-btn, .leaderboard-btn {
@@ -272,4 +273,15 @@ nav a:hover {
 h3{
   text-align: center;
   letter-spacing: 2px;
+}
+tr{
+  animation-name: trAppear;
+  animation-duration: 1s;
+  text-align: center;
+  animation-fill-mode: forwards;
+}
+@keyframes trAppear {
+  from{
+    transform: translateY(10rem);
+  }
 }
