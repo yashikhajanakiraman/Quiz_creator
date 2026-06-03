@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /index.html
+Allow: /about-us.html
+Allow: /contact.html
+Allow: /instant-quizes.html
+Allow: /play-quiz.html
+Allow: /login-page.html
+Allow: /sign-up.html
+Disallow: /myprofile.html
+Disallow: /edit-profile.html
+Disallow: /quiz-creator.html
+Disallow: /quiz-editor.html
+Disallow: /quiz-deleter.html
+Disallow: /experiment.html
+
+Sitemap: https://quizzle-celestius.netlify.app/sitemap.xml
