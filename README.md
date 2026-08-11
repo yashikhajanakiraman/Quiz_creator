@@ -8,9 +8,9 @@ It is designed to make learning interactive, fast, and personalized — whether 
 
 ## 🌐 Live Demo
 
-🔗 **Live Site:** https://github.com/yashikhajanakiraman/Quiz_creator/
+🔗 **Live Site:** https://quizzle-celestius.netlify.app/
 
-💻 **GitHub Repo:** https://quizzle-celestius.netlify.app/
+💻 **GitHub Repo:** https://github.com/yashikhajanakiraman/Quiz_creator/
 
 ---
 
